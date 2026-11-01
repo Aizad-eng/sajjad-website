@@ -1,0 +1,15 @@
+# SurgiSource
+
+> SurgiSource sources medical equipment and surgical disposables for clinics, hospitals, laboratories and individuals in Pakistan. Items are imported on order and supplied across Pakistan. Based in Islamabad. Buyers request a price through the quote form at https://surgisource.dxuxama.workers.dev/quote/ and get a reply on WhatsApp with a price in rupees.
+
+Key facts:
+- Stock: none kept; everything is imported on order.
+- Buyers: clinics, hospitals, labs and individuals; single items or larger quantities.
+- Not offered: installation, calibration, servicing, medical advice.
+
+## Categories
+- [Surgical disposables](https://surgisource.dxuxama.workers.dev/surgical-disposables/): Gloves, masks, gowns, syringes, IV cannulas, catheters and other surgical disposables, imported on order and supplied across Pakistan.
+- [Audiology equipment](https://surgisource.dxuxama.workers.dev/audiology-equipment/): Audiometers, TDH39, DD45 and DD65 audiometric headphones, B71 and B81 bone conductors and audiology accessories, imported on order across Pakistan.
+- [Diagnostic equipment](https://surgisource.dxuxama.workers.dev/diagnostic-equipment/): Blood pressure monitors, pulse oximeters, stethoscopes, thermometers, otoscopes, ECG machines and glucometers, imported on order across Pakistan.
+- [Hospital equipment](https://surgisource.dxuxama.workers.dev/hospital-equipment/): Patient monitors, suction machines, nebulisers, infusion and syringe pumps, mobility aids and ward equipment, imported on order across Pakistan.
+- [Laboratory equipment](https://surgisource.dxuxama.workers.dev/laboratory-equipment/): Microscopes, centrifuges, micropipettes, tips, test tubes, slides and lab glassware for clinical and teaching labs, imported on order across Pakistan.
