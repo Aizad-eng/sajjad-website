@@ -138,70 +138,143 @@ CATS = [
 
 # ---------------------------------------------------------------- page shell
 CSS = """
-:root{--ink:#14211f;--ink-2:#3a4745;--ink-3:#66716f;--bg:#f7f6f2;--paper:#fff;--line:#e2dfd6;--teal:#0e6b63;--teal-dark:#0a4f49;--teal-soft:#e4f1ef;--warm:#fbf4e4;--warm-line:#efdcae}
-*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 "Source Sans 3",system-ui,-apple-system,sans-serif}
-h1,h2,h3{font-family:"Fraunces",Georgia,serif;font-weight:600;line-height:1.15;letter-spacing:-.01em;margin:0}
+:root{--ink:#0f2a2c;--ink-2:#3b5254;--ink-3:#6b7f80;--bg:#f6f9f9;--paper:#fff;--line:#e1e9e9;--teal:#0b7a70;--teal-dark:#075c55;--mint:#dff3ef;--mint-2:#c7ebe4;--sand:#f7f1e6;--sky:#e8f1fb;--rose:#fbecec;--shadow:0 1px 2px rgba(15,42,44,.05),0 18px 40px -22px rgba(15,42,44,.28);--r:20px}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16.5px/1.65 "Plus Jakarta Sans",system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-weight:800;line-height:1.1;letter-spacing:-.025em;margin:0}
 a{color:var(--teal)}img{max-width:100%;display:block}
-.wrap{width:min(1080px,100% - 32px);margin-inline:auto}
-header{background:var(--paper);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:68px}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font:600 21px "Fraunces",Georgia,serif}
-.brand svg{width:30px;height:30px;flex:none}
-.links{display:flex;gap:22px;font-size:15.5px}.links a{color:var(--ink-2);text-decoration:none}.links a:hover{color:var(--teal)}
-.btn{display:inline-block;background:var(--teal);color:#fff;text-decoration:none;font-weight:600;padding:11px 20px;border-radius:10px;font-size:16px;white-space:nowrap}
-.btn:hover{background:var(--teal-dark)}
-.btn.ghost{background:transparent;color:var(--teal);border:1.5px solid var(--teal)}
+.wrap{width:min(1160px,100% - 32px);margin-inline:auto}
+/* nav */
+header{position:sticky;top:12px;z-index:50;padding:0 16px}
+.nav{width:min(1160px,100%);margin:12px auto 0;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 10px 10px 18px;background:rgba(255,255,255,.82);backdrop-filter:saturate(170%) blur(14px);-webkit-backdrop-filter:saturate(170%) blur(14px);border:1px solid var(--line);border-radius:18px;box-shadow:0 10px 30px -20px rgba(15,42,44,.35)}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-weight:800;font-size:19px;letter-spacing:-.02em}
+.brand svg{width:32px;height:32px;flex:none}
+.links{display:flex;gap:4px}.links a{color:var(--ink-2);text-decoration:none;font-weight:600;font-size:15px;padding:8px 12px;border-radius:10px}.links a:hover{background:var(--mint);color:var(--teal-dark)}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:#fff;text-decoration:none;font-weight:700;padding:12px 20px;border-radius:12px;font-size:15.5px;white-space:nowrap;border:0;cursor:pointer;font-family:inherit;transition:transform .15s,background .15s}
+.btn:hover{background:var(--teal-dark);transform:translateY(-1px)}
+.btn.ghost{background:var(--paper);color:var(--ink);border:1px solid var(--line)}.btn.ghost:hover{background:var(--mint)}
+/* hero */
+.home-hero{position:relative;margin-top:-74px;padding:130px 0 70px;background:radial-gradient(900px 500px at 85% 10%,var(--mint-2),transparent 60%),radial-gradient(700px 420px at 0% 100%,#eaf4ff,transparent 60%),linear-gradient(180deg,#f2faf8,var(--bg));overflow:hidden}
+.home-hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(11,122,112,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(11,122,112,.06) 1px,transparent 1px);background-size:44px 44px;mask-image:radial-gradient(ellipse at 70% 30%,#000 20%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse at 70% 30%,#000 20%,transparent 70%)}
+.hero-grid{position:relative;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:56px;align-items:center}
+.home-hero h1{font-size:clamp(38px,5.6vw,66px);letter-spacing:-.035em}
+.home-hero .lead{font-size:19px;color:var(--ink-2);margin:20px 0 0;max-width:560px}
+.search{margin-top:28px;display:flex;gap:8px;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:8px;box-shadow:var(--shadow);max-width:560px}
+.search input{flex:1;min-width:0;border:0;outline:0;font:500 16.5px "Plus Jakarta Sans",sans-serif;padding:10px 12px;color:var(--ink);background:transparent}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;align-items:center}
+.chips span{font-size:14px;color:var(--ink-3);margin-right:2px}
+.chip{display:inline-block;font-size:14px;font-weight:600;color:var(--ink-2);background:rgba(255,255,255,.75);border:1px solid var(--line);border-radius:999px;padding:6px 12px;text-decoration:none}.chip:hover{border-color:var(--teal);color:var(--teal-dark)}
+.photos{position:relative;height:520px}
+.photos img{position:absolute;border-radius:22px;object-fit:cover;box-shadow:0 30px 60px -28px rgba(15,42,44,.5);border:6px solid #fff}
+.photos .p1{width:58%;height:78%;right:0;top:0;transform:rotate(2deg)}
+.photos .p2{width:50%;height:62%;left:0;bottom:0;transform:rotate(-3deg)}
+.photos .tag{position:absolute;left:8%;top:6%;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:14px 16px;max-width:250px;box-shadow:var(--shadow);font-size:14px;line-height:1.45;color:var(--ink-2)}
+.photos .tag b{display:block;color:var(--ink);font-size:15px;margin-bottom:2px}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#1aa37a;box-shadow:0 0 0 4px rgba(26,163,122,.18);margin-right:8px;vertical-align:middle}
+/* sections */
+.sec{padding:84px 0}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:30px;flex-wrap:wrap}
+.sec-head h2,.sec h2{font-size:clamp(28px,3.6vw,42px)}
+.sec-head p{margin:10px 0 0;color:var(--ink-2);max-width:560px;font-size:17.5px}
+/* bento categories */
+.bento{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-auto-rows:minmax(210px,auto);gap:16px}
+.tile{position:relative;border-radius:var(--r);padding:26px;text-decoration:none;color:var(--ink);border:1px solid var(--line);background:var(--paper);display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s;overflow:hidden}
+.tile:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.tile .ic{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:var(--mint);color:var(--teal-dark);margin-bottom:auto}
+.tile .ic svg{width:28px;height:28px}
+.tile h3{font-size:22px;margin-top:22px}.tile p{margin:8px 0 0;color:var(--ink-2);font-size:15px}
+.tile .go{margin-top:14px;font-weight:700;color:var(--teal);font-size:14.5px}
+.t1{grid-column:span 3;grid-row:span 2;background:linear-gradient(160deg,var(--mint),#fff 70%)}.t1 h3{font-size:30px}
+.t1 ul{list-style:none;padding:0;margin:16px 0 0;display:flex;flex-wrap:wrap;gap:8px}.t1 li{background:#fff;border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:14px;font-weight:600;color:var(--ink-2)}
+.t2{grid-column:span 3;background:var(--sand)}.t2 .ic{background:#fff}
+.t3{grid-column:span 3;background:var(--sky)}.t3 .ic{background:#fff;color:#2860a8}
+.t4,.t5,.t6{grid-column:span 2}
+/* product rail */
+.rail{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.pr{display:flex;align-items:center;gap:14px;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:14px 16px;text-decoration:none;color:var(--ink);font-weight:700;transition:border-color .15s,transform .15s}
+.pr:hover{border-color:var(--teal);transform:translateY(-2px)}
+.pr .ic{width:42px;height:42px;border-radius:12px;background:var(--mint);display:grid;place-items:center;color:var(--teal-dark);flex:none}.pr .ic svg{width:22px;height:22px}
+.pr small{display:block;font-weight:500;color:var(--ink-3);font-size:13px}
+/* how */
+.how{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center}
+.steps{margin:24px 0 0;padding:0;list-style:none;position:relative}
+.steps li{position:relative;padding:0 0 26px 56px}
+.steps li::before{content:attr(data-n);position:absolute;left:0;top:0;width:38px;height:38px;border-radius:50%;background:var(--teal);color:#fff;font-weight:800;display:grid;place-items:center;font-size:15px}
+.steps li::after{content:"";position:absolute;left:18px;top:42px;bottom:4px;width:2px;background:var(--mint-2)}
+.steps li:last-child::after{display:none}
+.steps b{display:block;font-size:18px;margin-bottom:2px}.steps span{color:var(--ink-2)}
+.req{background:var(--paper);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:24px;max-width:460px;margin-left:auto}
+.req h3{font-size:18px;margin-bottom:14px}
+.req .row{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-top:1px solid var(--line);font-size:15px}.req .row span{color:var(--ink-3)}.req .row b{text-align:right}
+.req .wa{margin-top:16px;background:#e7f6ee;border-radius:14px;padding:12px 14px;font-size:14.5px;color:#14532d}
+/* who */
+.who{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.who div{flex:1 1 200px;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 18px;font-weight:700}.who small{display:block;font-weight:500;color:var(--ink-3);margin-top:2px;font-size:14px}
+/* faq two-column */
+.qa{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 48px}
+.qa h3{font-size:18px;letter-spacing:-.01em}.qa p{margin:8px 0 0;color:var(--ink-2)}
+.final{border-radius:28px;padding:48px;background:radial-gradient(600px 300px at 90% 0%,var(--mint-2),transparent 60%),var(--mint);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;align-items:center}
+.final h2{font-size:clamp(28px,3.4vw,40px)}.final p{color:var(--ink-2);margin:10px 0 0}
+.final .search{margin-top:0;max-width:none}
+/* inner pages */
+main.inner{padding-top:24px}
 .crumbs{font-size:14px;color:var(--ink-3);padding-top:22px}.crumbs a{color:var(--ink-3)}
-.hero{padding:34px 0 18px;max-width:760px}
-.hero h1{font-size:clamp(32px,5vw,50px)}
-.lead{font-size:19px;color:var(--ink-2);margin:14px 0 0}
+.hero{padding:26px 0 26px;max-width:800px}
+.hero h1{font-size:clamp(32px,4.8vw,52px);letter-spacing:-.03em}
+.lead{font-size:18.5px;color:var(--ink-2);margin:14px 0 0}
 .meta{font-size:14.5px;color:var(--ink-3);margin-top:12px}
 .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
-section{padding:34px 0;border-top:1px solid var(--line)}
-section h2{font-size:clamp(24px,3.2vw,31px);margin-bottom:10px}
-.cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
-.cols h3{font-size:19px;margin-bottom:6px}.cols p{margin:0;color:var(--ink-2)}
-.num{font:600 15px "Source Sans 3",sans-serif;color:var(--teal);display:block;margin-bottom:4px}
-.catlist{list-style:none;padding:0;margin:0;columns:2;column-gap:40px}
-.catlist li{break-inside:avoid;padding:14px 0;border-bottom:1px solid var(--line)}
-.catlist a{font:600 20px "Fraunces",Georgia,serif;text-decoration:none;color:var(--ink)}.catlist a:hover{color:var(--teal)}
-.catlist p{margin:4px 0 0;color:var(--ink-2);font-size:16px}
-.items{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 40px}
-.item{padding:18px 0;border-bottom:1px solid var(--line)}
-.item h3{font-size:20px;margin-bottom:6px}.item p{margin:0;color:var(--ink-2)}
-.item .ask{font-size:15px;color:var(--ink-3);margin-top:8px}.item .ask b{color:var(--ink-2)}
-.note{background:var(--warm);border:1px solid var(--warm-line);border-radius:12px;padding:18px 20px;margin:8px 0}
-.note p{margin:0}
-.story{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:32px;align-items:start}
-.faq details{border-bottom:1px solid var(--line);padding:14px 0}
-.faq summary{cursor:pointer;font-weight:600;font-size:17.5px;list-style:none}.faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";float:right;color:var(--teal);font-weight:600}.faq details[open] summary::after{content:"\\2212"}
+section{padding:36px 0;border-top:1px solid var(--line)}
+section h2{font-size:clamp(24px,3vw,32px);margin-bottom:12px}
+.items{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.item{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px 22px}
+.item h3{font-size:19px;margin-bottom:6px}.item p{margin:0;color:var(--ink-2);font-size:15.5px}
+.item .ask{font-size:14.5px;color:var(--ink-3);margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}.item .ask b{color:var(--ink-2)}
+.note{background:var(--sand);border:1px solid #eadfc8;border-radius:16px;padding:18px 20px;margin:8px 0}.note p{margin:0}
+.faq details{border-bottom:1px solid var(--line);padding:15px 0}
+.faq summary{cursor:pointer;font-weight:700;font-size:17px;list-style:none}.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";float:right;color:var(--teal);font-weight:800}.faq details[open] summary::after{content:"\\2212"}
 .faq p{margin:8px 0 0;color:var(--ink-2)}
-.guides{list-style:none;padding:0;margin:0}
-.guides li{padding:16px 0;border-bottom:1px solid var(--line)}
-.guides a{font:600 19px "Fraunces",Georgia,serif;color:var(--ink);text-decoration:none}.guides a:hover{color:var(--teal)}
-.guides p{margin:4px 0 0;color:var(--ink-2);font-size:16px}.guides small{color:var(--ink-3);font-size:14px}
-.article{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:48px;padding-bottom:40px}
-.answer{background:var(--teal-soft);border-left:4px solid var(--teal);border-radius:0 12px 12px 0;padding:16px 20px;margin:6px 0 26px}
-.answer b{display:block;font-size:14px;color:var(--teal-dark);margin-bottom:2px}.answer p{margin:0}
-.prose h2{font-size:26px;margin:34px 0 10px}.prose p,.prose li{color:#24302e}
-.prose table{width:100%;border-collapse:collapse;font-size:15.5px;margin:12px 0 22px;display:block;overflow-x:auto}
-.prose th,.prose td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
-.prose th{background:var(--paper);font-weight:600}
-aside .box{position:sticky;top:20px;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px}
-aside h3{font-size:18px;margin-bottom:8px}aside p{font-size:15.5px;color:var(--ink-2);margin:0 0 12px}
-.formwrap{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:8px 18px;max-width:720px}
-footer{background:var(--ink);color:#c9d3d1;padding:36px 0;margin-top:20px;font-size:15px}
-footer a{color:#e6efed}footer .row{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
-footer .cols4{display:flex;gap:32px;flex-wrap:wrap}footer ul{list-style:none;padding:0;margin:6px 0 0}footer li{margin:4px 0}
-footer .small{margin-top:22px;color:#9fb0ad;font-size:13.5px}
-@media(max-width:820px){.cols{grid-template-columns:1fr}.catlist{columns:1}.items{grid-template-columns:1fr}.story{grid-template-columns:1fr}.article{grid-template-columns:1fr}aside .box{position:static}.links{display:none}}
+.guides{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.guides li{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 18px}
+.guides a{font-weight:800;font-size:17px;color:var(--ink);text-decoration:none;letter-spacing:-.01em}.guides a:hover{color:var(--teal)}
+.guides p{margin:6px 0 0;color:var(--ink-2);font-size:15px}.guides small{color:var(--ink-3);font-size:13.5px}
+.catlist{list-style:none;padding:0;margin:0}
+.article{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:48px;padding-bottom:40px}
+.answer{background:var(--mint);border:1px solid var(--mint-2);border-radius:16px;padding:18px 20px;margin:6px 0 26px}
+.answer b{display:block;font-size:14px;color:var(--teal-dark);margin-bottom:4px}.answer p{margin:0}
+.prose{max-width:740px}.prose h2{font-size:26px;margin:38px 0 10px}.prose p,.prose li{color:#23393b}.prose li{margin:6px 0}
+.prose table{width:100%;border-collapse:collapse;font-size:15px;margin:14px 0 24px;display:block;overflow-x:auto;background:var(--paper);border-radius:14px;border:1px solid var(--line)}
+.prose th,.prose td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}.prose th{background:#f1f6f6;font-weight:700}
+aside .box{position:sticky;top:100px;background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:var(--shadow)}
+aside h3{font-size:19px;margin-bottom:8px}aside p{font-size:15px;color:var(--ink-2);margin:0 0 14px}
+.formwrap{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:8px 20px;max-width:760px;box-shadow:var(--shadow)}
+.asked{background:var(--mint);border:1px solid var(--mint-2);border-radius:14px;padding:12px 16px;margin:0 0 16px;max-width:760px}
+footer{background:var(--paper);border-top:1px solid var(--line);padding:48px 0 28px;margin-top:40px;font-size:15px;color:var(--ink-2)}
+footer a{color:var(--ink-2);text-decoration:none}footer a:hover{color:var(--teal)}
+footer .row{display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap}
+footer .cols4{display:flex;gap:48px;flex-wrap:wrap}footer b{color:var(--ink)}footer ul{list-style:none;padding:0;margin:8px 0 0}footer li{margin:6px 0}
+footer .small{margin-top:28px;padding-top:18px;border-top:1px solid var(--line);color:var(--ink-3);font-size:13.5px}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+@media(max-width:960px){.hero-grid,.how,.final{grid-template-columns:1fr}.photos{height:420px;max-width:520px}.req{margin-left:0}.rail{grid-template-columns:repeat(2,minmax(0,1fr))}.bento{grid-template-columns:repeat(2,minmax(0,1fr))}.t1,.t2,.t3,.t4,.t5,.t6{grid-column:span 2;grid-row:auto}.article{grid-template-columns:1fr}aside .box{position:static}}
+@media(max-width:1040px){.links a{padding:8px 8px;font-size:14.5px}}
+@media(max-width:900px){.links{display:none}}
+@media(max-width:720px){.qa,.items,.guides{grid-template-columns:1fr}.rail{grid-template-columns:1fr}.sec{padding:60px 0}.final{padding:28px}.home-hero{padding-top:110px}.photos{height:360px}.photos .tag{left:0;top:auto;bottom:-6px;max-width:220px}.nav .btn{padding:10px 14px;font-size:14.5px}}
 """
 
 LOGO = '<svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#0e6b63"/><path d="M13 7h6v6h6v6h-6v6h-6v-6H7v-6h6z" fill="#fff"/></svg>'
 
-def shell(path, title, desc, body, ld=None, og_type="website"):
+ICON = {
+ "surgical-disposables": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11V5.5a1.5 1.5 0 0 1 3 0V10"/><path d="M10 9.5V4.5a1.5 1.5 0 0 1 3 0V10"/><path d="M13 9.5V5.5a1.5 1.5 0 0 1 3 0V12"/><path d="M16 9.5a1.5 1.5 0 0 1 3 0V15a6 6 0 0 1-6 6h-1.5a6 6 0 0 1-4.6-2.2L4 15.2a1.6 1.6 0 0 1 2.4-2.1L7 14"/></svg>',
+ "surgical-instruments": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.1 15.9M14.5 14.5 20 20M8.1 8.1 12 12"/></svg>',
+ "audiology-equipment": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14v-2a9 9 0 0 1 18 0v2"/><rect x="2.5" y="13" width="5" height="8" rx="2"/><rect x="16.5" y="13" width="5" height="8" rx="2"/></svg>',
+ "diagnostic-equipment": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v6a5 5 0 0 0 10 0V3"/><path d="M10 14v2a5 5 0 0 0 10 0v-2"/><circle cx="20" cy="12" r="2"/><path d="M4 3h2M14 3h2"/></svg>',
+ "hospital-equipment": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6v14M3 14h18v6M21 14v-2a3 3 0 0 0-3-3h-7v5"/><circle cx="7" cy="11" r="2"/></svg>',
+ "laboratory-equipment": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6l-5.5 9.5A2 2 0 0 0 6.2 21h11.6a2 2 0 0 0 1.7-2.5L14 9V3"/><path d="M7.5 15h9"/></svg>',
+}
+
+def shell(path, title, desc, body, ld=None, og_type="website", full=False):
     url = SITE + path
     lds = "".join('<script type="application/ld+json">' + json.dumps(x, ensure_ascii=False) + "</script>\n" for x in (ld or []))
     nav = '<a href="/products/">Products</a><a href="/surgical-disposables/">Disposables</a><a href="/surgical-instruments/">Instruments</a><a href="/audiology-equipment/">Audiology</a><a href="/guides/">Guides</a>'
@@ -222,20 +295,22 @@ def shell(path, title, desc, body, ld=None, og_type="website"):
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
 {lds}</head>
 <body>
-<header><div class="wrap nav"><a class="brand" href="/">{LOGO}{NAME}</a><nav class="links" aria-label="Main">{nav}</nav><a class="btn" href="/quote/">Request a quote</a></div></header>
-<main class="wrap">
+<header><div class="nav"><a class="brand" href="/">{LOGO}{NAME}</a><nav class="links" aria-label="Main">{nav}</nav><a class="btn" href="/quote/">Get a price</a></div></header>
+<main{'' if full else ' class="wrap inner"'}>
 {body}
 </main>
 <footer><div class="wrap">
-<div class="row"><div><a class="brand" href="/" style="color:#fff">{LOGO}{NAME}</a><p style="max-width:360px">Medical equipment and surgical disposables, imported on order and supplied across Pakistan.</p></div>
-<div class="cols4"><div><b style="color:#fff">Categories</b><ul>{foot_cats}</ul></div>
-<div><b style="color:#fff">Company</b><ul><li><a href="/about/">About</a></li><li><a href="/guides/">Buying guides</a></li><li><a href="/quote/">Request a quote</a></li></ul></div></div></div>
+<div class="row"><div><a class="brand" href="/">{LOGO}{NAME}</a><p style="max-width:360px">Medical equipment and surgical disposables, imported on order and supplied across Pakistan.</p></div>
+<div class="cols4"><div><b>Categories</b><ul>{foot_cats}</ul></div>
+<div><b>Popular</b><ul><li><a href="/products/nebulizer/">Nebulizer</a></li><li><a href="/products/bp-apparatus/">BP apparatus</a></li><li><a href="/products/glucometer/">Glucometer</a></li><li><a href="/products/pulse-oximeter/">Pulse oximeter</a></li><li><a href="/products/">All products</a></li></ul></div>
+<div><b>Company</b><ul><li><a href="/about/">About</a></li><li><a href="/guides/">Buying guides</a></li><li><a href="/quote/">Request a quote</a></li></ul></div></div></div>
 <p class="small">© {TODAY.year} {NAME}. Based in Islamabad. Product names and model numbers belong to their manufacturers and are used only to identify items.</p>
 </div></footer>
+<script src="/site.js" defer></script>
 </body>
 </html>
 """
@@ -274,8 +349,17 @@ def main():
     urls = []
 
     # ---- home
-    cat_list = "".join(f'<li><a href="/{c["slug"]}/">{e(c["name"])}</a><p>{e(re.split(r", (?:imported|sourced) on order", c["desc"])[0])}.</p></li>' for c in CATS)
-    g_list = "".join(f'<li><a href="/guides/{g["slug"]}/">{e(g["title"])}</a><p>{e(g["description"])}</p></li>' for g in guides[:6])
+    cls = {"surgical-disposables": "t1", "audiology-equipment": "t2", "diagnostic-equipment": "t3", "surgical-instruments": "t4", "hospital-equipment": "t5", "laboratory-equipment": "t6"}
+    order = ["surgical-disposables", "audiology-equipment", "diagnostic-equipment", "surgical-instruments", "hospital-equipment", "laboratory-equipment"]
+    cmap = {c["slug"]: c for c in CATS}
+    tiles = ""
+    for sl in order:
+        c = cmap[sl]; short = re.split(r", (?:imported|sourced) on order", c["desc"])[0]
+        extra = ('<ul>' + "".join(f"<li>{e(n)}</li>" for n, d, a in c["items"]) + '</ul>') if sl == "surgical-disposables" else ""
+        tiles += f'<a class="tile {cls[sl]} reveal" href="/{sl}/"><span class="ic">{ICON[sl]}</span><h3>{e(c["name"])}</h3><p>{e(short)}.</p>{extra}<span class="go">See items →</span></a>'
+    rail = "".join(f'<a class="pr reveal" href="/products/{pr["slug"]}/"><span class="ic">{ICON[pr["cat"]]}</span><span>{e(pr["name"])}<small>Price in Pakistan</small></span></a>' for pr in PRODUCTS[:12])
+    chips = "".join(f'<a class="chip" href="/products/{x}/">{e(n)}</a>' for x, n in [("nebulizer", "Nebulizer"), ("bp-apparatus", "BP apparatus"), ("glucometer", "Glucometer"), ("pulse-oximeter", "Pulse oximeter"), ("audiometer", "Audiometer"), ("iv-cannula", "IV cannula")])
+    g_list = "".join(f'<li class="reveal"><a href="/guides/{g["slug"]}/">{e(g["title"])}</a><p>{e(g["description"])}</p></li>' for g in guides[:6])
     home_faqs = [
         ("Do you keep stock?", "No. Items are imported on order. You tell us what you need, we price it in rupees, and once you confirm we source it and deliver it to you."),
         ("Who do you supply?", "Clinics, hospitals, laboratories and individuals across Pakistan. You can order a single item or a larger quantity for a clinic."),
@@ -284,26 +368,66 @@ def main():
         ("Are the products DRAP registered?", "Many medical devices in Pakistan fall under DRAP's Medical Devices Rules 2017. Ask about a specific item and we will tell you what documentation the supplier provides."),
         ("Do you install, calibrate or service equipment?", "No. We source and supply equipment. Arrange installation, calibration and servicing with a local biomedical engineer."),
     ]
-    body = f"""<div class="hero">
-<h1>Medical equipment and surgical disposables in Pakistan</h1>
-<p class="lead">Audiology equipment, diagnostic devices, hospital equipment, lab equipment and surgical disposables. Imported on order and supplied across Pakistan to clinics, hospitals, labs and individuals.</p>
-<div class="cta-row"><a class="btn" href="/quote/">Request a quote</a><a class="btn ghost" href="#categories">Browse categories</a></div>
+    qa = "".join(f"<div class=\"reveal\"><h3>{e(q)}</h3><p>{e(a)}</p></div>" for q, a in home_faqs)
+    search = '<form class="search" action="/quote/" method="get" data-search><input name="item" placeholder="What do you need? e.g. TDH39 headphones, nitrile gloves" aria-label="What do you need?" autocomplete="off"><button class="btn" type="submit">Get a price</button></form>'
+    body = f"""<section class="home-hero"><div class="wrap hero-grid">
+<div>
+<h1>Medical equipment and surgical supplies, sourced for you</h1>
+<p class="lead">Tell us the item. We find it, price it in rupees and deliver it anywhere in Pakistan. For clinics, hospitals, labs and home use.</p>
+{search}
+<div class="chips"><span>Popular:</span>{chips}</div>
 </div>
-<section><h2>How ordering works</h2><div class="cols">
-<div><span class="num">1</span><h3>Tell us the item</h3><p>Send the product name, model number or a link, the quantity and your city through the quote form.</p></div>
-<div><span class="num">2</span><h3>Get a price in rupees</h3><p>We find the item from manufacturers and verified suppliers and reply on WhatsApp with a price.</p></div>
-<div><span class="num">3</span><h3>Confirm and receive</h3><p>Once you confirm, we import the item and deliver it to you anywhere in Pakistan.</p></div>
+<div class="photos">
+<img class="p1" src="/assets/order-headset-hand.jpg" alt="Audiometric headset from one of our orders" width="480" height="640" fetchpriority="high">
+<img class="p2" src="/assets/order-headset-box.jpg" alt="The audiometric headset in its shipping box" width="480" height="640" loading="lazy">
+<div class="tag"><b><span class="dot"></span>A recent order</b>An audiometric headset of the TDH39 and DD45 type. No shop in Pakistan stocked it, so we sourced one and delivered it.</div>
+</div>
 </div></section>
-<section id="categories"><h2>What we supply</h2><ul class="catlist">{cat_list}</ul></section>
-<section><h2>Most searched products</h2><ul class="catlist">{"".join(f'<li><a href="/products/{pr["slug"]}/">{e(pr["name"])}</a><p>Types, what changes the price, and today\'s price in rupees.</p></li>' for pr in PRODUCTS[:8])}</ul><p><a href="/products/">All popular products</a></p></section>
-<section><div class="story"><div><h2>A recent order</h2><p>A customer needed a replacement audiometric headset, the TDH39 and DD45 type used with audiometers. No shop in Pakistan stocked it. We found it from a verified supplier, bought it as a single piece and delivered it in Pakistan.</p><p>Audiology parts, specialist instruments and other items that are hard to find locally are what we are set up for.</p></div>
-<div class="note"><p><b>Looking for something specific?</b> Send the model number or a photo of the old part. We will match it and price it.</p><p style="margin-top:12px"><a class="btn" href="/quote/">Request a quote</a></p></div></div></section>
-{'<section><h2>Buying guides</h2><ul class="guides">' + g_list + '</ul><p><a href="/guides/">All buying guides</a></p></section>' if guides else ''}
-<section><h2>Questions</h2>{faq_html(home_faqs)}</section>"""
+<div class="wrap">
+<section class="sec" id="categories" style="border:0"><div class="sec-head"><div><h2>What we supply</h2><p>Six areas, from everyday disposables to specialist audiology equipment. If it is a medical item, ask us.</p></div><a class="btn ghost" href="/quote/">Ask for something else</a></div>
+<div class="bento">{tiles}</div></section>
+<section class="sec"><div class="sec-head"><div><h2>Prices people search for</h2><p>Each page explains the types, what changes the price and what to check. Ask for today's price in rupees.</p></div><a class="btn ghost" href="/products/">All products</a></div>
+<div class="rail">{rail}</div></section>
+<section class="sec"><div class="how">
+<div class="reveal"><h2>How ordering works</h2><p class="lead" style="font-size:17.5px">There is nothing to sign up for. You send a request, we come back with a price.</p>
+<ol class="steps"><li data-n="1"><b>Tell us the item</b><span>Name, model number or a link, the quantity and your city.</span></li>
+<li data-n="2"><b>Get a price in rupees</b><span>We find it from manufacturers and verified suppliers and reply on WhatsApp.</span></li>
+<li data-n="3"><b>Confirm and receive</b><span>We import it on order and deliver it anywhere in Pakistan.</span></li></ol>
+<a class="btn" href="/quote/">Start a request</a></div>
+<div class="req reveal"><h3>Example request</h3>
+<div class="row"><span>Item</span><b>TDH39 audiometric headphones</b></div>
+<div class="row"><span>Quantity</span><b>1</b></div>
+<div class="row"><span>Buying for</span><b>Clinic</b></div>
+<div class="row"><span>City</span><b>Lahore</b></div>
+<div class="wa">We reply on WhatsApp with the price in rupees.</div></div>
+</div></section>
+<section class="sec"><h2>Who we supply</h2>
+<div class="who"><div class="reveal">Clinics<small>GP, ENT, dental and specialist practices</small></div><div class="reveal">Hospitals<small>Wards, theatres and emergency rooms</small></div><div class="reveal">Laboratories<small>Clinical, research and teaching labs</small></div><div class="reveal">Home use<small>Patients and families buying for home care</small></div></div></section>
+{'<section class="sec"><div class="sec-head"><div><h2>Buying guides</h2><p>What to check before you buy.</p></div><a class="btn ghost" href="/guides/">All guides</a></div><ul class="guides">' + g_list + '</ul></section>' if guides else ''}
+<section class="sec"><h2 style="margin-bottom:28px">Questions</h2><div class="qa">{qa}</div></section>
+<div class="final reveal"><div><h2>What do you need?</h2><p>Type the item and we'll take you to the right page or the quote form.</p></div>{search}</div>
+</div>"""
     ws = {"@context": "https://schema.org", "@type": "WebSite", "name": NAME, "url": SITE + "/"}
     write("/", shell("/", "Medical Equipment & Surgical Disposables in Pakistan | " + NAME,
-                     "Audiology, diagnostic, hospital and lab equipment and surgical disposables, imported on order and supplied across Pakistan. Request a quote.",
-                     body, [ORG, ws, faq_ld(home_faqs)])); urls.append("/")
+                     "Audiology, diagnostic, hospital and lab equipment and surgical disposables, imported on order and supplied across Pakistan. Get a price in rupees.",
+                     body, [ORG, ws, faq_ld(home_faqs)], full=True)); urls.append("/")
+
+    # ---- site.js: scroll reveal + search routing
+    keys = {pr["slug"]: [pr["name"].lower()] for pr in PRODUCTS}
+    keys["bp-apparatus"] += ["bp", "blood pressure", "sphygmomanometer"]; keys["pulse-oximeter"] += ["oximeter", "spo2"]
+    keys["nebulizer"] += ["nebuliser"]; keys["glucometer"] += ["glucose", "sugar"]; keys["iv-cannula"] += ["cannula", "branula"]
+    keys["surgical-gloves"] += ["gloves", "glove"]; keys["syringes"] += ["syringe"]; keys["oxygen-concentrator"] += ["oxygen"]
+    keys["audiometer"] += ["audiometry"]; keys["hearing-aid"] += ["hearing"]
+    js = """(function(){
+var R=%s;
+document.querySelectorAll("form[data-search]").forEach(function(f){f.addEventListener("submit",function(ev){var q=(f.item.value||"").toLowerCase().trim();if(!q)return;for(var k in R){for(var i=0;i<R[k].length;i++){if(q.indexOf(R[k][i])>-1&&q.length<=R[k][i].length+12){ev.preventDefault();location.href="/products/"+k+"/";return}}}});});
+var els=document.querySelectorAll(".reveal");
+if(!("IntersectionObserver" in window)||matchMedia("(prefers-reduced-motion: reduce)").matches){els.forEach(function(x){x.classList.add("in")});return}
+var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add("in");io.unobserve(en.target)}})},{rootMargin:"0px 0px -8%% 0px"});
+els.forEach(function(x){io.observe(x)});
+})();
+""" % json.dumps(keys)
+    open(os.path.join(ROOT, "site.js"), "w").write(js)
 
     # ---- categories
     for c in CATS:
@@ -399,8 +523,10 @@ def main():
     # ---- quote
     qbody = f"""<nav class="crumbs"><a href="/">Home</a> › Request a quote</nav>
 <div class="hero"><h1>Request a quote</h1><p class="lead">Tell us what you need. We reply on WhatsApp with a price in rupees, delivered anywhere in Pakistan.</p></div>
+<div class="asked" id="asked" hidden></div>
 <div class="formwrap"><iframe data-tally-src="https://tally.so/embed/{TALLY}?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="900" frameborder="0" marginheight="0" marginwidth="0" title="Request a quote"></iframe></div>
 <script>(function(){{var s="https://tally.so/widgets/embed.js";function l(){{if(typeof Tally!=="undefined")Tally.loadEmbeds();else document.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function(f){{f.src=f.dataset.tallySrc}})}}if(typeof Tally!=="undefined")l();else if(!document.querySelector('script[src="'+s+'"]')){{var t=document.createElement("script");t.src=s;t.onload=l;t.onerror=l;document.body.appendChild(t)}}}})();</script>
+<script>(function(){{var q=new URLSearchParams(location.search).get("item");if(!q)return;var a=document.getElementById("asked");a.textContent="You searched for \u201c"+q.slice(0,120)+"\u201d. Type it into the first question below and add the quantity and your city.";a.hidden=false}})();</script>
 <section><h2>What helps us price it quickly</h2><ul><li>The product name and model number, or a link to the product.</li><li>The size, variant or specification, if the item comes in more than one.</li><li>The quantity you need.</li><li>Your city, so we can include delivery.</li></ul></section>"""
     write("/quote/", shell("/quote/", "Request a Quote for Medical Equipment | " + NAME,
           "Request a price in rupees for medical equipment or surgical disposables, imported on order and supplied across Pakistan.", qbody,
