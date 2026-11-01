@@ -289,6 +289,16 @@ footer a{color:var(--ink-2);text-decoration:none}footer a:hover{color:var(--teal
 footer .row{display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap}
 footer .cols4{display:flex;gap:48px;flex-wrap:wrap}footer b{color:var(--ink)}footer ul{list-style:none;padding:0;margin:8px 0 0}footer li{margin:6px 0}
 footer .small{margin-top:28px;padding-top:18px;border-top:1px solid var(--line);color:var(--ink-3);font-size:13.5px}
+.inner .hero{max-width:none;margin-top:14px;padding:44px 44px 40px;border-radius:28px;background:radial-gradient(600px 300px at 100% 0%,rgba(201,154,59,.18),transparent 60%),radial-gradient(700px 360px at 0% 100%,rgba(14,124,114,.16),transparent 60%),linear-gradient(135deg,#f1f7f3,#fbfaf7);border:1px solid var(--line)}
+.inner .hero .lead{max-width:760px}
+.side{position:sticky;top:96px;display:flex;flex-direction:column;gap:16px}
+aside .side .box{position:static}
+.toc{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:16px 8px 12px;max-height:52vh;overflow:auto}
+.toc b{display:block;font-family:var(--display);font-size:15px;padding:0 12px 8px}
+.toc a{display:block;font-size:14px;line-height:1.35;color:var(--ink-3);text-decoration:none;padding:7px 12px;border-left:2px solid transparent;border-radius:0 8px 8px 0}
+.toc a:hover{color:var(--teal)}.toc a.on{color:var(--teal-dark);border-left-color:var(--teal);background:var(--mint);font-weight:600}
+.btn{position:relative;overflow:hidden}.btn::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);transition:left .6s}.btn:hover::after{left:120%}
+@media(max-width:960px){.side{position:static}.toc{display:none}.inner .hero{padding:28px 22px}}
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}.reveal.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
 @media(max-width:960px){.hero-grid,.how,.final{grid-template-columns:1fr}.stage{height:380px;min-height:0}.band{padding:40px 24px}.req{margin-left:0}.rail{grid-template-columns:repeat(2,minmax(0,1fr))}.bento{grid-template-columns:repeat(2,minmax(0,1fr))}.t1,.t2,.t3,.t4,.t5,.t6{grid-column:span 2;grid-row:auto}.article{grid-template-columns:1fr}aside .box{position:static}}
@@ -335,6 +345,7 @@ def shell(path, title, desc, body, ld=None, og_type="website", full=False):
 <link rel="stylesheet" href="/style.css">
 {lds}</head>
 <body>
+<div class="progress" aria-hidden="true"></div>
 <header><div class="nav"><a class="brand" href="/">{LOGO}{NAME}</a><nav class="links" aria-label="Main">{nav}</nav><a class="btn" href="/quote/">Get a price</a></div></header>
 <main{'' if full else ' class="wrap inner"'}>
 {body}
@@ -347,7 +358,7 @@ def shell(path, title, desc, body, ld=None, og_type="website", full=False):
 <p class="small">© {TODAY.year} {NAME}. Based in Islamabad. Product names and model numbers belong to their manufacturers and are used only to identify items.</p>
 </div></footer>
 <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js" defer></script>
-<script src="/site.js?v=3" defer></script>
+<script src="/site.js?v=4" defer></script>
 </body>
 </html>
 """
@@ -408,8 +419,7 @@ def main():
     qa = "".join(f"<div class=\"reveal\"><h3>{e(q)}</h3><p>{e(a)}</p></div>" for q, a in home_faqs)
     search = '<form class="search" action="/quote/" method="get" data-search><input name="item" placeholder="What do you need? e.g. TDH39 headphones, nitrile gloves" aria-label="What do you need?" autocomplete="off"><button class="btn" type="submit">Get a price</button></form>'
     marquee_items = "".join(f'<a href="/products/{pr["slug"]}/">{ICON[pr["cat"]]}{e(pr["name"])}</a>' for pr in PRODUCTS)
-    body = f"""<div class="progress" aria-hidden="true"></div>
-<section class="home-hero">
+    body = f"""<section class="home-hero">
 <span class="orb o1" data-parallax="-.12"></span><span class="orb o2" data-parallax=".08"></span><span class="orb o3" data-parallax="-.05"></span>
 <div class="wrap hero-grid">
 <div>
@@ -478,6 +488,12 @@ if(lenis)lenis.on("scroll",function(e){onScroll(e.scroll)});else addEventListene
 onScroll(scrollY);
 /* tile glow follows the pointer */
 document.querySelectorAll(".tile").forEach(function(t){t.addEventListener("pointermove",function(e){var r=t.getBoundingClientRect();t.style.setProperty("--mx",(e.clientX-r.left)+"px");t.style.setProperty("--my",(e.clientY-r.top)+"px")})});
+/* table of contents highlight */
+var tocLinks=[].slice.call(document.querySelectorAll(".toc a"));
+if(tocLinks.length&&"IntersectionObserver" in window){var heads=tocLinks.map(function(a){return document.getElementById(a.getAttribute("href").slice(1))}).filter(Boolean);
+ var tio=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){tocLinks.forEach(function(a){a.classList.toggle("on",a.getAttribute("href")==="#"+en.target.id)})}})},{rootMargin:"0px 0px -70%% 0px"});
+ heads.forEach(function(h){tio.observe(h)});
+ tocLinks.forEach(function(a){a.addEventListener("click",function(ev){var t=document.getElementById(a.getAttribute("href").slice(1));if(t&&lenis){ev.preventDefault();lenis.scrollTo(t,{offset:-96})}})});}
 /* reveal */
 var els=document.querySelectorAll(".reveal");
 if(!("IntersectionObserver" in window)||reduced){els.forEach(function(x){x.classList.add("in")})}
@@ -493,33 +509,43 @@ function init3d(){
  rd.setPixelRatio(Math.min(devicePixelRatio,2));rd.setSize(W(),H());stage.insertBefore(rd.domElement,stage.firstChild);stage.classList.add("has3d");
  var scene=new T.Scene(),cam=new T.PerspectiveCamera(36,W()/H(),.1,100);cam.position.set(0,0,7.2);
  var g=new T.Group();scene.add(g);
- /* points on the surface of a rounded plus made of two boxes */
+ /* morph targets: medical cross, heart, capsule, globe */
+ var N=reduced?2200:5200,cA=new T.Color(0x0e7c72),cB=new T.Color(0x0a5c55),cG=new T.Color(0xc99a3b);
  function inPlus(x,y){return (Math.abs(x)<=.55&&Math.abs(y)<=1.6)||(Math.abs(y)<=.55&&Math.abs(x)<=1.6)}
- var N=reduced?2000:5200,pos=new Float32Array(N*3),col=new Float32Array(N*3),base=new Float32Array(N*3),k=0,cA=new T.Color(0x0e7c72),cB=new T.Color(0x0a5c55),cG=new T.Color(0xc99a3b);
- while(k<N){var x=(Math.random()*2-1)*1.6,y=(Math.random()*2-1)*1.6,z=(Math.random()*2-1)*.55;if(!inPlus(x,y))continue;
-  var edge=Math.min(1.6-Math.abs(x),1.6-Math.abs(y),.55-Math.abs(z),Math.abs(x)>.55?.55-Math.abs(y):9,Math.abs(y)>.55?.55-Math.abs(x):9);
-  if(Math.abs(edge)>.06&&Math.random()<.9)continue;
-  pos[k*3]=base[k*3]=x;pos[k*3+1]=base[k*3+1]=y;pos[k*3+2]=base[k*3+2]=z;
-  var cc=Math.random()<.08?cG:(Math.random()<.5?cA:cB);col[k*3]=cc.r;col[k*3+1]=cc.g;col[k*3+2]=cc.b;k++;}
+ function crossPts(){var a=new Float32Array(N*3),k=0;while(k<N){var x=(Math.random()*2-1)*1.6,y=(Math.random()*2-1)*1.6,z=(Math.random()*2-1)*.55;if(!inPlus(x,y))continue;
+  var e=Math.min(1.6-Math.abs(x),1.6-Math.abs(y),.55-Math.abs(z),Math.abs(x)>.55?.55-Math.abs(y):9,Math.abs(y)>.55?.55-Math.abs(x):9);if(Math.abs(e)>.06&&Math.random()<.9)continue;
+  a[k*3]=x;a[k*3+1]=y;a[k*3+2]=z;k++}return a}
+ function heartPts(){var a=new Float32Array(N*3);for(var k=0;k<N;k++){var t=Math.random()*Math.PI*2,f=Math.random()<.75?1:Math.sqrt(Math.random());
+  var x=16*Math.pow(Math.sin(t),3),y=13*Math.cos(t)-5*Math.cos(2*t)-2*Math.cos(3*t)-Math.cos(4*t);x*=.105*f;y*=.105*f;
+  var th=.55*Math.sqrt(Math.max(0,1-f*f*.6));a[k*3]=x;a[k*3+1]=y+.25;a[k*3+2]=(Math.random()*2-1)*th}return a}
+ function capsulePts(){var a=new Float32Array(N*3),r=.62,L=1.15,c=Math.cos(.75),sn=Math.sin(.75);for(var k=0;k<N;k++){var u=Math.random()*2-1,ph=Math.random()*Math.PI*2,x,y,z;
+  if(Math.random()<.62){y=u*L;x=Math.cos(ph)*r;z=Math.sin(ph)*r}else{var v=Math.random()*Math.PI/2,s2=u<0?-1:1;x=Math.cos(ph)*Math.cos(v)*r;z=Math.sin(ph)*Math.cos(v)*r;y=s2*(L+Math.sin(v)*r)}
+  a[k*3]=x*c-y*sn;a[k*3+1]=x*sn+y*c;a[k*3+2]=z}return a}
+ function globePts(){var a=new Float32Array(N*3),R=1.75;for(var k=0;k<N;k++){var y=1-k/(N-1)*2,r=Math.sqrt(1-y*y),th=k*2.39996;a[k*3]=Math.cos(th)*r*R;a[k*3+1]=y*R;a[k*3+2]=Math.sin(th)*r*R}return a}
+ var shapes=[crossPts(),heartPts(),capsulePts(),globePts()];
+ var pos=new Float32Array(shapes[0]),col=new Float32Array(N*3);
+ for(var k=0;k<N;k++){var cc=Math.random()<.08?cG:(Math.random()<.5?cA:cB);col[k*3]=cc.r;col[k*3+1]=cc.g;col[k*3+2]=cc.b}
  var geo=new T.BufferGeometry();geo.setAttribute("position",new T.BufferAttribute(pos,3));geo.setAttribute("color",new T.BufferAttribute(col,3));
- var pts=new T.Points(geo,new T.PointsMaterial({size:.055,vertexColors:true,transparent:true,opacity:1}));g.add(pts);
+ var pts=new T.Points(geo,new T.PointsMaterial({size:.05,vertexColors:true,transparent:true,opacity:1}));g.add(pts);
  /* orbit ring */
- var M=900,rp=new Float32Array(M*3);for(var i=0;i<M;i++){var a=i/M*Math.PI*2,r=2.45+Math.sin(i*.7)*.04;rp[i*3]=Math.cos(a)*r;rp[i*3+1]=Math.sin(a)*r*.32;rp[i*3+2]=Math.sin(a)*r;}
+ var M=900,rp=new Float32Array(M*3);for(var i=0;i<M;i++){var an=i/M*Math.PI*2,rr=2.45+Math.sin(i*.7)*.04;rp[i*3]=Math.cos(an)*rr;rp[i*3+1]=Math.sin(an)*rr*.32;rp[i*3+2]=Math.sin(an)*rr}
  var rg=new T.BufferGeometry();rg.setAttribute("position",new T.BufferAttribute(rp,3));var ring=new T.Points(rg,new T.PointsMaterial({size:.03,color:0xc99a3b,transparent:true,opacity:.7}));
  var ringG=new T.Group();ringG.add(ring);ringG.rotation.z=.35;scene.add(ringG);
  var sat=new T.Mesh(new T.SphereGeometry(.09,20,20),new T.MeshBasicMaterial({color:0xc99a3b}));ringG.add(sat);
- var mx=0,my=0,drag=0,down=null,vis=true,last=performance.now(),t0=last;
+ var mx=0,my=0,drag=0,down=null,vis=true,last=performance.now(),t0=last,HOLD=3.6,MORPH=1.7;
  addEventListener("pointermove",function(e){mx=(e.clientX/innerWidth-.5);my=(e.clientY/innerHeight-.5)});
  stage.addEventListener("pointerdown",function(e){down=e.clientX});addEventListener("pointerup",function(){down=null});
  stage.addEventListener("pointermove",function(e){if(down!==null){drag+=(e.clientX-down)*.006;down=e.clientX}});
  new IntersectionObserver(function(en){vis=en[0].isIntersecting},{threshold:.02}).observe(stage);
  addEventListener("resize",function(){rd.setSize(W(),H());cam.aspect=W()/H();cam.updateProjectionMatrix()});
+ function ease(x){return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2}
  (function loop(now){requestAnimationFrame(loop);if(!vis)return;var t=(now-t0)/1000;last=now;
   if(!reduced){g.rotation.y=Math.sin(t*.45)*.75+drag+mx*.5;g.rotation.x=Math.sin(t*.3)*.15+my*.35+.12;
-   var p=geo.attributes.position.array;for(var j=0;j<N;j+=3){var b=j*3,w=Math.sin(t*1.6+base[b]*2+base[b+1]*2)*.025;p[b]=base[b]*(1+w);p[b+1]=base[b+1]*(1+w);}
+   var cyc=HOLD+MORPH,n=Math.floor(t/cyc),ph=t-n*cyc,A=shapes[n%%4],B=shapes[(n+1)%%4],m=ph<HOLD?0:ease((ph-HOLD)/MORPH),p=geo.attributes.position.array,br=Math.sin(t*1.6);
+   for(var j=0;j<N;j++){var b=j*3,w=1+Math.sin(t*1.6+j)*.012;p[b]=(A[b]+(B[b]-A[b])*m)*w;p[b+1]=(A[b+1]+(B[b+1]-A[b+1])*m)*w;p[b+2]=(A[b+2]+(B[b+2]-A[b+2])*m)*w}
    geo.attributes.position.needsUpdate=true;
-   ring.rotation.y=-t*.25;var a=t*.6;sat.position.set(Math.cos(a)*2.45,Math.sin(a)*2.45*.32,Math.sin(a)*2.45);}
-  rd.render(scene,cam)})(last);
+   ring.rotation.y=-t*.25;var an2=t*.6;sat.position.set(Math.cos(an2)*2.45,Math.sin(an2)*2.45*.32,Math.sin(an2)*2.45);}
+ rd.render(scene,cam)})(last);
 }
 })();
 """ % json.dumps(keys)
@@ -597,6 +623,12 @@ function init3d(){
     for g in guides:
         p = f'/guides/{g["slug"]}/'
         body_html = re.sub(r'<a href="(https?://[^"]+)"', r'<a href="\1" target="_blank" rel="noopener">', g["body"])
+        toc = []
+        def _id(m):
+            txt = re.sub("<[^>]+>", "", m.group(1)); hid = re.sub(r"[^a-z0-9]+", "-", txt.lower()).strip("-")[:60]
+            toc.append((hid, txt)); return f'<h2 id="{hid}">{m.group(1)}</h2>'
+        body_html = re.sub(r"<h2>(.*?)</h2>", _id, body_html)
+        toc_html = "".join(f'<a href="#{i}">{e(t)}</a>' for i, t in toc if t.lower() != "sources")
         upd = datetime.date.fromisoformat(g["updated"])
         body = f"""<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › <a href="/guides/">Guides</a> › {e(g.get("category", ""))}</nav>
 <div class="hero"><h1>{e(g["title"])}</h1><p class="meta">Updated {upd.strftime("%B %-d, %Y")} · {g.get("minutes", 8)} min read</p></div>
@@ -605,7 +637,7 @@ function init3d(){
 {body_html}
 <h2 id="faq">Frequently asked questions</h2>{faq_html(g["faqs"])}
 </article>
-<aside><div class="box"><h3>Need this item?</h3><p>We source medical equipment and disposables on order and supply them across Pakistan.</p><a class="btn" href="/quote/">Request a quote</a></div></aside></div>"""
+<aside><div class="side"><nav class="toc" aria-label="On this page"><b>On this page</b>{toc_html}</nav><div class="box"><h3>Need this item?</h3><p>We source medical equipment and disposables on order and supply them across Pakistan, in any quantity.</p><a class="btn" href="/quote/">Get a price</a></div></div></aside></div>"""
         art = {"@context": "https://schema.org", "@type": "Article", "headline": g["title"], "description": g["description"],
                "datePublished": g.get("published", g["updated"]), "dateModified": g["updated"], "mainEntityOfPage": SITE + p,
                "author": {"@id": SITE + "/#org"}, "publisher": {"@id": SITE + "/#org"}}

@@ -149,6 +149,16 @@ footer a{color:var(--ink-2);text-decoration:none}footer a:hover{color:var(--teal
 footer .row{display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap}
 footer .cols4{display:flex;gap:48px;flex-wrap:wrap}footer b{color:var(--ink)}footer ul{list-style:none;padding:0;margin:8px 0 0}footer li{margin:6px 0}
 footer .small{margin-top:28px;padding-top:18px;border-top:1px solid var(--line);color:var(--ink-3);font-size:13.5px}
+.inner .hero{max-width:none;margin-top:14px;padding:44px 44px 40px;border-radius:28px;background:radial-gradient(600px 300px at 100% 0%,rgba(201,154,59,.18),transparent 60%),radial-gradient(700px 360px at 0% 100%,rgba(14,124,114,.16),transparent 60%),linear-gradient(135deg,#f1f7f3,#fbfaf7);border:1px solid var(--line)}
+.inner .hero .lead{max-width:760px}
+.side{position:sticky;top:96px;display:flex;flex-direction:column;gap:16px}
+aside .side .box{position:static}
+.toc{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:16px 8px 12px;max-height:52vh;overflow:auto}
+.toc b{display:block;font-family:var(--display);font-size:15px;padding:0 12px 8px}
+.toc a{display:block;font-size:14px;line-height:1.35;color:var(--ink-3);text-decoration:none;padding:7px 12px;border-left:2px solid transparent;border-radius:0 8px 8px 0}
+.toc a:hover{color:var(--teal)}.toc a.on{color:var(--teal-dark);border-left-color:var(--teal);background:var(--mint);font-weight:600}
+.btn{position:relative;overflow:hidden}.btn::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);transition:left .6s}.btn:hover::after{left:120%}
+@media(max-width:960px){.side{position:static}.toc{display:none}.inner .hero{padding:28px 22px}}
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}.reveal.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
 @media(max-width:960px){.hero-grid,.how,.final{grid-template-columns:1fr}.stage{height:380px;min-height:0}.band{padding:40px 24px}.req{margin-left:0}.rail{grid-template-columns:repeat(2,minmax(0,1fr))}.bento{grid-template-columns:repeat(2,minmax(0,1fr))}.t1,.t2,.t3,.t4,.t5,.t6{grid-column:span 2;grid-row:auto}.article{grid-template-columns:1fr}aside .box{position:static}}

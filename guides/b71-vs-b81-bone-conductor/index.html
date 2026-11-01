@@ -22,6 +22,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://surgisource.dxuxama.workers.dev/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://surgisource.dxuxama.workers.dev/guides/"}, {"@type": "ListItem", "position": 3, "name": "B71 vs B81 bone conductor: which RadioEar transducer does your audiometer need?", "item": "https://surgisource.dxuxama.workers.dev/guides/b71-vs-b81-bone-conductor/"}]}</script>
 </head>
 <body>
+<div class="progress" aria-hidden="true"></div>
 <header><div class="nav"><a class="brand" href="/"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#0e6b63"/><path d="M13 7h6v6h6v6h-6v6h-6v-6H7v-6h6z" fill="#fff"/></svg>SurgiSource</a><nav class="links" aria-label="Main"><a href="/products/">Products</a><a href="/surgical-disposables/">Disposables</a><a href="/surgical-instruments/">Instruments</a><a href="/audiology-equipment/">Audiology</a><a href="/guides/">Guides</a></nav><a class="btn" href="/quote/">Get a price</a></div></header>
 <main class="wrap inner">
 <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › <a href="/guides/">Guides</a> › Audiology</nav>
@@ -29,10 +30,10 @@
 <div class="article"><article class="prose">
 <div class="answer"><b>Quick answer</b><p>The RadioEar B81 is the newer bone conductor. It gives higher output at low frequencies and lower distortion than the B71, and an independent study found it works with the same audiometers. The B71 comes in several impedances, often 10 ohm, while the B81 is 12.5 ohm. Either one must be calibrated with your audiometer after any swap.</p></div>
 <p>Almost every diagnostic audiometer ships with a bone conductor, and in most clinics it is a RadioEar B71 or B81. They look similar, use the same headbands and plug into the same audiometers, but they perform differently at low frequencies. This guide compares them using RadioEar datasheets and an independent study, and explains what to check before you buy or swap one.</p>
-<h2>What is a bone conductor and why does an audiometer need one?</h2>
+<h2 id="what-is-a-bone-conductor-and-why-does-an-audiometer-need-one">What is a bone conductor and why does an audiometer need one?</h2>
 <p>A bone conductor, also called a bone vibrator or bone transducer, sits on the bone behind the ear and is held in place by a spring headband. Instead of sending sound through the ear canal, it vibrates the skull. Bone conduction results are read alongside air conduction results from the headphones, and RadioEar's B-81 datasheet notes their role in measuring conductive components of hearing loss. Bone conduction is one of the facilities that separates a diagnostic audiometer, such as the Interacoustics AD629, from a basic screening unit.</p>
 <p>Bone conductors are calibrated in force, not sound pressure. ISO 389-3:2016 sets reference equivalent threshold vibratory force levels for bone vibrators, along with the essential characteristics of the vibrator and how it is coupled to the head and to a mechanical coupler.</p>
-<h2>How do the B71 and B81 specifications compare?</h2>
+<h2 id="how-do-the-b71-and-b81-specifications-compare">How do the B71 and B81 specifications compare?</h2>
 <table><thead><tr><th>Item</th><th>RadioEar B71</th><th>RadioEar B-81</th></tr></thead><tbody>
 <tr><td>History</td><td>Introduced in the 1970s. RadioEar says it is fabricated and hand assembled in the US</td><td>Newer design, described by RadioEar as its new audiometric bone conductor</td></tr>
 <tr><td>Design</td><td>Conventional bone transducer</td><td>Balanced Electromagnetic Separation Transducer (BEST) principle</td></tr>
@@ -46,10 +47,10 @@
 <tr><td>Headbands listed by RadioEar</td><td>P3333 or P1188 AMBAND</td><td>P3333 or P1188 AMBAND</td></tr>
 </tbody></table>
 <p>RadioEar lists the B-81 sensitivity as 119 dB re 1 micronewton at 1 V RMS and 1 kHz. Both datasheets base their measurements on a Bruel and Kjaer Type 4930 artificial mastoid with a static force of 5.4 N.</p>
-<h2>What is different about the B81 design?</h2>
+<h2 id="what-is-different-about-the-b81-design">What is different about the B81 design?</h2>
 <p>RadioEar says the B-81 uses the BEST principle, in which static forces are counterbalanced so that non-linear distortion is reduced and maximum output can be increased. The datasheet states the maximum output can be raised by 5 to 20 dB across the frequency range without exceeding 5.5 percent THD or a 6 V RMS drive voltage. At 250 Hz, the median maximum output of 48 dB HL meets IEC 60645-1.</p>
 <p>RadioEar also says the robust construction gives much better shock resistance than conventional designs, and that the B-81 can use a custom cable that locks the plug to the transducer body so it cannot be pulled out by accident.</p>
-<h2>What did independent testing find?</h2>
+<h2 id="what-did-independent-testing-find">What did independent testing find?</h2>
 <p>A 2015 study by Fredén Jansson and colleagues at Chalmers University of Technology, published in the International Journal of Audiology, compared the two transducers. It found:</p>
 <ul>
 <li>Below 1500 Hz, the B81 reached maximum hearing levels 10.7 to 22.0 dB higher than the B71.</li>
@@ -58,21 +59,21 @@
 <li>Electrical impedance was practically the same for both.</li>
 </ul>
 <p>The authors concluded that the B81 has improved electro-acoustic performance and is compatible with the same audiometers as the B71.</p>
-<h2>Which audiometers use the B71 or B81?</h2>
+<h2 id="which-audiometers-use-the-b71-or-b81">Which audiometers use the B71 or B81?</h2>
 <p>Most audiometers with bone conduction list one or both. Interacoustics is a useful example because its specifications name the transducers:</p>
 <ul>
 <li>The <strong>AD629</strong> diagnostic audiometer includes a B71 bone conductor, with the B81 as an optional part. Its calibration section lists the B71 against ISO 389-3 and ANSI S3.6, with mastoid placement and a headband static force of 5.4 N plus or minus 0.5 N.</li>
 <li>The <strong>AC40</strong> clinical audiometer includes a B81 bone conductor headset, with a B71 headset as an optional part.</li>
 </ul>
 <p>For other brands, check the audiometer manual for the supported bone conductor models before you order.</p>
-<h2>Does placement on the mastoid or forehead matter?</h2>
+<h2 id="does-placement-on-the-mastoid-or-forehead-matter">Does placement on the mastoid or forehead matter?</h2>
 <p>Yes. A bone conductor needs a different force to reach threshold depending on where it sits. The B-81 datasheet reproduces the ANSI S3.6-2010 reference levels for both positions. At 1000 Hz, the reference is 42.5 dB re 1 micronewton on the mastoid and 51.0 dB on the forehead, a difference of 8.5 dB. At 500 Hz the difference is 14.0 dB. ISO 389-3:2016 also gives forehead minus mastoid differences, for information, in its Annex C.</p>
 <p>In practice, the audiometer is calibrated for one placement. The Interacoustics AD629 specification, for example, lists mastoid placement for its B71. If your clinic uses forehead placement, tell the service engineer so the audiometer is set up correctly.</p>
-<h2>Which headband fits the B71 and B81?</h2>
+<h2 id="which-headband-fits-the-b71-and-b81">Which headband fits the B71 and B81?</h2>
 <p>RadioEar sells both transducers as bare units or as pre-assembled headsets. Its headsets use the P3333 headband or the P1188 AMBAND, with a 2 m cord and a 6.3 mm mono plug, straight or angled at 30 degrees. RadioEar says the B-81 is compatible with all standard headbands and high quality cables. The headband matters because the reference values assume a set static force pressing the transducer onto the head. If your headband is stretched or cracked, replace it rather than the transducer.</p>
-<h2>Do you need to recalibrate when switching from B71 to B81?</h2>
+<h2 id="do-you-need-to-recalibrate-when-switching-from-b71-to-b81">Do you need to recalibrate when switching from B71 to B81?</h2>
 <p>Yes. The reference force levels in ISO 389-3 apply to bone vibrators in general, but each transducer model and each individual unit has its own output. The B71 datasheet gives a calibration table of the input voltage needed at each frequency for a typical 10 ohm unit, and notes that test results for individual serialised units are available. The B81 is 12.5 ohm and has a different output curve. When you change from one to the other, or replace a damaged unit with the same model, the audiometer must be set up for the model and calibrated with the new unit by a qualified service engineer. Our <a href="/guides/audiometer-buying-guide-pakistan">audiometer buying guide</a> explains ISO 389 calibration in more detail.</p>
-<h2>What should you ask a supplier before buying a bone conductor?</h2>
+<h2 id="what-should-you-ask-a-supplier-before-buying-a-bone-conducto">What should you ask a supplier before buying a bone conductor?</h2>
 <ol>
 <li>The exact model: B71 or B-81, and for a B71 the impedance, since it comes in several.</li>
 <li>Whether it is a bare transducer or a full headset with headband and cord, and which plug it has.</li>
@@ -82,10 +83,10 @@
 </ol>
 <p>Headphones are covered in our comparison of <a href="/guides/tdh39-vs-dd45-vs-dd65-audiometric-headphones">TDH39, DD45 and DD65 headphones</a>.</p>
 <p>SurgiSource can source B71 and B81 bone conductors, headbands and cords on order. Send the model, impedance and plug type through the <a href="/quote/">quote form</a> and we will reply with a price in rupees on WhatsApp. More options are on our <a href="/audiology-equipment/">audiology equipment</a> page.</p>
-<h2>Sources</h2><ul><li><a href="https://dmadminpanelstrapiprod04.blob.core.windows.net/strapi-uploads/assets/B71_Datasheet_acd9fab400.pdf" target="_blank" rel="noopener">>RadioEar B71 datasheet</a></li><li><a href="https://dmadminpanelstrapiprod04.blob.core.windows.net/strapi-uploads/assets/B81_Datasheet_ded5a544b1.pdf" target="_blank" rel="noopener">>RadioEar B-81 datasheet</a></li><li><a href="https://www.radioear.us/products/bone-transducers" target="_blank" rel="noopener">>RadioEar bone transducers</a></li><li><a href="https://research.chalmers.se/en/publication/216808" target="_blank" rel="noopener">>Fredén Jansson et al. 2015, Electro-acoustic performance of the Radioear B81 compared with the B71, Chalmers University</a></li><li><a href="https://www.evs.ee/en/evs-en-iso-389-3-2016" target="_blank" rel="noopener">>EVS-EN ISO 389-3:2016 scope, Estonian Centre for Standardisation</a></li><li><a href="https://interacoustics.com/images/files/specifications/D-0106991-H_2024_07_AD629_Technical_Specifications.pdf" target="_blank" rel="noopener">>Interacoustics AD629 technical specifications (2024)</a></li><li><a href="https://medton-hedim.co.il/wp-content/uploads/2019/diagno/technical_specification_ac40%20(1).pdf" target="_blank" rel="noopener">>Interacoustics AC40 technical specification (distributor copy)</a></li></ul>
+<h2 id="sources">Sources</h2><ul><li><a href="https://dmadminpanelstrapiprod04.blob.core.windows.net/strapi-uploads/assets/B71_Datasheet_acd9fab400.pdf" target="_blank" rel="noopener">>RadioEar B71 datasheet</a></li><li><a href="https://dmadminpanelstrapiprod04.blob.core.windows.net/strapi-uploads/assets/B81_Datasheet_ded5a544b1.pdf" target="_blank" rel="noopener">>RadioEar B-81 datasheet</a></li><li><a href="https://www.radioear.us/products/bone-transducers" target="_blank" rel="noopener">>RadioEar bone transducers</a></li><li><a href="https://research.chalmers.se/en/publication/216808" target="_blank" rel="noopener">>Fredén Jansson et al. 2015, Electro-acoustic performance of the Radioear B81 compared with the B71, Chalmers University</a></li><li><a href="https://www.evs.ee/en/evs-en-iso-389-3-2016" target="_blank" rel="noopener">>EVS-EN ISO 389-3:2016 scope, Estonian Centre for Standardisation</a></li><li><a href="https://interacoustics.com/images/files/specifications/D-0106991-H_2024_07_AD629_Technical_Specifications.pdf" target="_blank" rel="noopener">>Interacoustics AD629 technical specifications (2024)</a></li><li><a href="https://medton-hedim.co.il/wp-content/uploads/2019/diagno/technical_specification_ac40%20(1).pdf" target="_blank" rel="noopener">>Interacoustics AC40 technical specification (distributor copy)</a></li></ul>
 <h2 id="faq">Frequently asked questions</h2><div class="faq"><details><summary>Is the B81 better than the B71?</summary><p>On RadioEar data and a 2015 Chalmers study, the B81 gives higher maximum output below 1500 Hz and lower distortion up to 1000 Hz. Whether you need that depends on the tests your clinic runs.</p></details><details><summary>Can I replace a B71 with a B81 on the same audiometer?</summary><p>The Chalmers study found the B81 compatible with the same audiometers. Check that your audiometer supports it and have it calibrated with the new transducer.</p></details><details><summary>What impedance is the B71?</summary><p>RadioEar sells the B71 in several impedances, including 10, 50, 150 and 300 ohm. Match the impedance your audiometer expects.</p></details><details><summary>Does the bone conductor headband matter?</summary><p>Yes. Reference levels assume a set static force, around 5.4 N in RadioEar and Interacoustics documents. A worn headband should be replaced.</p></details><details><summary>Does SurgiSource test or calibrate bone conductors?</summary><p>No. We source them on order. Calibration should be done by a qualified service engineer with your audiometer.</p></details></div>
 </article>
-<aside><div class="box"><h3>Need this item?</h3><p>We source medical equipment and disposables on order and supply them across Pakistan.</p><a class="btn" href="/quote/">Request a quote</a></div></aside></div>
+<aside><div class="side"><nav class="toc" aria-label="On this page"><b>On this page</b><a href="#what-is-a-bone-conductor-and-why-does-an-audiometer-need-one">What is a bone conductor and why does an audiometer need one?</a><a href="#how-do-the-b71-and-b81-specifications-compare">How do the B71 and B81 specifications compare?</a><a href="#what-is-different-about-the-b81-design">What is different about the B81 design?</a><a href="#what-did-independent-testing-find">What did independent testing find?</a><a href="#which-audiometers-use-the-b71-or-b81">Which audiometers use the B71 or B81?</a><a href="#does-placement-on-the-mastoid-or-forehead-matter">Does placement on the mastoid or forehead matter?</a><a href="#which-headband-fits-the-b71-and-b81">Which headband fits the B71 and B81?</a><a href="#do-you-need-to-recalibrate-when-switching-from-b71-to-b81">Do you need to recalibrate when switching from B71 to B81?</a><a href="#what-should-you-ask-a-supplier-before-buying-a-bone-conducto">What should you ask a supplier before buying a bone conductor?</a></nav><div class="box"><h3>Need this item?</h3><p>We source medical equipment and disposables on order and supply them across Pakistan, in any quantity.</p><a class="btn" href="/quote/">Get a price</a></div></div></aside></div>
 </main>
 <footer><div class="wrap">
 <div class="row"><div><a class="brand" href="/"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#0e6b63"/><path d="M13 7h6v6h6v6h-6v6h-6v-6H7v-6h6z" fill="#fff"/></svg>SurgiSource</a><p style="max-width:360px">Medical equipment and surgical disposables, imported on order and supplied across Pakistan.</p></div>
@@ -95,6 +96,6 @@
 <p class="small">© 2026 SurgiSource. Based in Islamabad. Product names and model numbers belong to their manufacturers and are used only to identify items.</p>
 </div></footer>
 <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js" defer></script>
-<script src="/site.js?v=3" defer></script>
+<script src="/site.js?v=4" defer></script>
 </body>
 </html>
