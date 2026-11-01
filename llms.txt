@@ -9,7 +9,24 @@ Key facts:
 
 ## Categories
 - [Surgical disposables](https://surgisource.dxuxama.workers.dev/surgical-disposables/): Gloves, masks, gowns, syringes, IV cannulas, catheters and other surgical disposables, imported on order and supplied across Pakistan.
+- [Surgical instruments](https://surgisource.dxuxama.workers.dev/surgical-instruments/): Surgical scissors, forceps, needle holders, scalpel handles and blades, retractors and instrument sets, sourced on order and supplied across Pakistan.
 - [Audiology equipment](https://surgisource.dxuxama.workers.dev/audiology-equipment/): Audiometers, TDH39, DD45 and DD65 audiometric headphones, B71 and B81 bone conductors and audiology accessories, imported on order across Pakistan.
 - [Diagnostic equipment](https://surgisource.dxuxama.workers.dev/diagnostic-equipment/): Blood pressure monitors, pulse oximeters, stethoscopes, thermometers, otoscopes, ECG machines and glucometers, imported on order across Pakistan.
 - [Hospital equipment](https://surgisource.dxuxama.workers.dev/hospital-equipment/): Patient monitors, suction machines, nebulisers, infusion and syringe pumps, mobility aids and ward equipment, imported on order across Pakistan.
 - [Laboratory equipment](https://surgisource.dxuxama.workers.dev/laboratory-equipment/): Microscopes, centrifuges, micropipettes, tips, test tubes, slides and lab glassware for clinical and teaching labs, imported on order across Pakistan.
+
+## Product price pages
+- [Nebulizer price in Pakistan](https://surgisource.dxuxama.workers.dev/products/nebulizer/): types, price factors and how to get today's price
+- [Thermometer price in Pakistan](https://surgisource.dxuxama.workers.dev/products/thermometer/): types, price factors and how to get today's price
+- [BP apparatus price in Pakistan](https://surgisource.dxuxama.workers.dev/products/bp-apparatus/): types, price factors and how to get today's price
+- [Glucometer price in Pakistan](https://surgisource.dxuxama.workers.dev/products/glucometer/): types, price factors and how to get today's price
+- [Pulse oximeter price in Pakistan](https://surgisource.dxuxama.workers.dev/products/pulse-oximeter/): types, price factors and how to get today's price
+- [Stethoscope price in Pakistan](https://surgisource.dxuxama.workers.dev/products/stethoscope/): types, price factors and how to get today's price
+- [Wheelchair price in Pakistan](https://surgisource.dxuxama.workers.dev/products/wheelchair/): types, price factors and how to get today's price
+- [Hospital bed price in Pakistan](https://surgisource.dxuxama.workers.dev/products/hospital-bed/): types, price factors and how to get today's price
+- [Oxygen concentrator price in Pakistan](https://surgisource.dxuxama.workers.dev/products/oxygen-concentrator/): types, price factors and how to get today's price
+- [Syringes price in Pakistan](https://surgisource.dxuxama.workers.dev/products/syringes/): types, price factors and how to get today's price
+- [IV cannula price in Pakistan](https://surgisource.dxuxama.workers.dev/products/iv-cannula/): types, price factors and how to get today's price
+- [Surgical gloves price in Pakistan](https://surgisource.dxuxama.workers.dev/products/surgical-gloves/): types, price factors and how to get today's price
+- [Audiometer price in Pakistan](https://surgisource.dxuxama.workers.dev/products/audiometer/): types, price factors and how to get today's price
+- [Hearing aid price in Pakistan](https://surgisource.dxuxama.workers.dev/products/hearing-aid/): types, price factors and how to get today's price

@@ -6,7 +6,9 @@ Reads category content below and guides from content/guides/*.json, writes the s
 index.html, <category>/index.html, guides/index.html, guides/<slug>/index.html, quote/, about/,
 404.html, sitemap.xml, robots.txt, llms.txt. Change SITE when a custom domain is attached.
 """
-import os, re, json, glob, html, datetime
+import os, re, json, glob, html, datetime, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from products import PRODUCTS
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = "https://surgisource.dxuxama.workers.dev"
@@ -39,6 +41,24 @@ CATS = [
    ("Do I need to know the exact standard or size?", "It helps, but it is not required. Describe what you use now, or send a photo of the box, and we will match the item."),
    ("Are surgical disposables regulated in Pakistan?", "Many are medical devices under DRAP's Medical Devices Rules 2017. Ask about a specific item and we will tell you what documentation the supplier provides. See our DRAP guide for the basics."),
    ("Do you deliver outside Islamabad?", "Yes. Items are imported on order and supplied across Pakistan. Tell us your city when you request a quote."),
+  ]},
+ {"slug": "surgical-instruments", "name": "Surgical instruments",
+  "h1": "Surgical instruments in Pakistan",
+  "seo": "Surgical Instruments in Pakistan: Scissors, Forceps, Sets",
+  "desc": "Surgical scissors, forceps, needle holders, scalpel handles and blades, retractors and instrument sets, sourced on order and supplied across Pakistan.",
+  "intro": "Reusable stainless steel instruments for clinics, operation theatres and dental and veterinary practices. Pakistan's surgical instrument industry is centred in Sialkot, and we source instruments on order from makers in Pakistan or abroad.",
+  "items": [
+   ("Surgical scissors", "Operating, dissecting (Metzenbaum, Mayo), bandage and suture scissors in straight and curved patterns.", "Pattern, length, straight or curved, and quantity."),
+   ("Forceps", "Dissecting and tissue forceps, artery forceps (haemostats) and sponge-holding forceps.", "Type and pattern, length, toothed or non-toothed, and quantity."),
+   ("Needle holders", "Mayo-Hegar and other needle holders, with or without tungsten carbide inserts.", "Pattern, length and insert type."),
+   ("Scalpel handles and blades", "Reusable scalpel handles and sterile disposable blades in standard numbers.", "Handle number and blade numbers (for example 10, 11, 15, 22), and quantity."),
+   ("Retractors and clamps", "Hand-held and self-retaining retractors, towel clips and clamps.", "Type, size and quantity."),
+   ("Instrument sets", "Minor surgery, dressing, suturing and delivery sets, in a tray or pouch.", "The procedure the set is for, the instruments you need in it, and quantity."),
+  ],
+  "faqs": [
+   ("Are surgical instruments made in Pakistan?", "Yes. Sialkot is the main centre of Pakistan's surgical instrument industry. Tell us the pattern and quantity and we will source it."),
+   ("Can I order a single instrument?", "Yes. You can order one instrument or a full set."),
+   ("Do you sterilise instruments?", "No. Reusable instruments must be cleaned and sterilised by your clinic before use, following your infection control procedure."),
   ]},
  {"slug": "audiology-equipment", "name": "Audiology equipment",
   "h1": "Audiology equipment in Pakistan",
@@ -184,7 +204,7 @@ LOGO = '<svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32"
 def shell(path, title, desc, body, ld=None, og_type="website"):
     url = SITE + path
     lds = "".join('<script type="application/ld+json">' + json.dumps(x, ensure_ascii=False) + "</script>\n" for x in (ld or []))
-    nav = "".join(f'<a href="/{c["slug"]}/">{e(c["name"].split()[0])}</a>' for c in CATS) + '<a href="/guides/">Guides</a>'
+    nav = '<a href="/products/">Products</a><a href="/surgical-disposables/">Disposables</a><a href="/surgical-instruments/">Instruments</a><a href="/audiology-equipment/">Audiology</a><a href="/guides/">Guides</a>'
     foot_cats = "".join(f'<li><a href="/{c["slug"]}/">{e(c["name"])}</a></li>' for c in CATS)
     return f"""<!doctype html>
 <html lang="en">
@@ -254,7 +274,7 @@ def main():
     urls = []
 
     # ---- home
-    cat_list = "".join(f'<li><a href="/{c["slug"]}/">{e(c["name"])}</a><p>{e(c["desc"].split(", imported")[0])}.</p></li>' for c in CATS)
+    cat_list = "".join(f'<li><a href="/{c["slug"]}/">{e(c["name"])}</a><p>{e(re.split(r", (?:imported|sourced) on order", c["desc"])[0])}.</p></li>' for c in CATS)
     g_list = "".join(f'<li><a href="/guides/{g["slug"]}/">{e(g["title"])}</a><p>{e(g["description"])}</p></li>' for g in guides[:6])
     home_faqs = [
         ("Do you keep stock?", "No. Items are imported on order. You tell us what you need, we price it in rupees, and once you confirm we source it and deliver it to you."),
@@ -275,6 +295,7 @@ def main():
 <div><span class="num">3</span><h3>Confirm and receive</h3><p>Once you confirm, we import the item and deliver it to you anywhere in Pakistan.</p></div>
 </div></section>
 <section id="categories"><h2>What we supply</h2><ul class="catlist">{cat_list}</ul></section>
+<section><h2>Most searched products</h2><ul class="catlist">{"".join(f'<li><a href="/products/{pr["slug"]}/">{e(pr["name"])}</a><p>Types, what changes the price, and today\'s price in rupees.</p></li>' for pr in PRODUCTS[:8])}</ul><p><a href="/products/">All popular products</a></p></section>
 <section><div class="story"><div><h2>A recent order</h2><p>A customer needed a replacement audiometric headset, the TDH39 and DD45 type used with audiometers. No shop in Pakistan stocked it. We found it from a verified supplier, bought it as a single piece and delivered it in Pakistan.</p><p>Audiology parts, specialist instruments and other items that are hard to find locally are what we are set up for.</p></div>
 <div class="note"><p><b>Looking for something specific?</b> Send the model number or a photo of the old part. We will match it and price it.</p><p style="margin-top:12px"><a class="btn" href="/quote/">Request a quote</a></p></div></div></section>
 {'<section><h2>Buying guides</h2><ul class="guides">' + g_list + '</ul><p><a href="/guides/">All buying guides</a></p></section>' if guides else ''}
@@ -290,6 +311,9 @@ def main():
         items = "".join(f'<div class="item"><h3>{e(n)}</h3><p>{e(d)}</p><p class="ask"><b>When you ask for a price, tell us:</b> {e(a)}</p></div>' for n, d, a in c["items"])
         others = "".join(f'<li><a href="/{o["slug"]}/">{e(o["name"])}</a></li>' for o in CATS if o is not c)
         rel_html = ('<section><h2>Buying guides</h2><ul class="guides">' + "".join(f'<li><a href="/guides/{g["slug"]}/">{e(g["title"])}</a><p>{e(g["description"])}</p></li>' for g in rel) + "</ul></section>") if rel else ""
+        cprods = [pr for pr in PRODUCTS if pr["cat"] == c["slug"]]
+        if cprods:
+            rel_html = '<section><h2>Prices in Pakistan</h2><ul class="guides">' + "".join(f'<li><a href="/products/{pr["slug"]}/">{e(pr["name"])} price in Pakistan</a></li>' for pr in cprods) + "</ul></section>" + rel_html
         body = f"""<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › {e(c["name"])}</nav>
 <div class="hero"><h1>{e(c["h1"])}</h1><p class="lead">{e(c["intro"])}</p>
 <div class="cta-row"><a class="btn" href="/quote/">Request a quote</a></div></div>
@@ -303,6 +327,49 @@ def main():
         write(f'/{c["slug"]}/', shell(f'/{c["slug"]}/', c["seo"] + " | " + NAME, c["desc"], body,
               [crumbs_ld([("Home", "/"), (c["name"], f'/{c["slug"]}/')]), il, faq_ld(c["faqs"])]))
         urls.append(f'/{c["slug"]}/')
+
+    # ---- products ("<product> price in Pakistan")
+    catname = {c["slug"]: c["name"] for c in CATS}
+    for pr in PRODUCTS:
+        p = f'/products/{pr["slug"]}/'
+        n, nl = pr["name"], pr["name"].lower()
+        answer = (f"We don't publish fixed {nl} prices because they change with the model, the features and the exchange rate. "
+                  f"Send us the {nl} model you want, or the features you need, and we reply on WhatsApp with today's price in rupees. "
+                  "Items are imported on order and supplied across Pakistan.")
+        types = "".join(f"<li><strong>{e(a)}.</strong> {e(b)}</li>" for a, b in pr["types"])
+        fac = "".join(f"<li>{e(x)}</li>" for x in pr["factors"])
+        chk = "".join(f"<li>{e(x)}</li>" for x in pr["checks"])
+        faqs = [(f"What is the {nl} price in Pakistan?", f"It depends on the type, brand and model, and on the exchange rate, so we quote each request. Send the model or the features you need through our quote form and we reply with today's price in rupees.")] + pr["faqs"]
+        rel = [g for g in guides if any(w in (g["title"] + " " + g["slug"]).lower() for w in nl.replace("bp apparatus", "blood pressure").split()[:1])]
+        rel_html = "".join(f'<li><a href="/guides/{g["slug"]}/">{e(g["title"])}</a></li>' for g in rel[:3])
+        sib = [o for o in PRODUCTS if o["cat"] == pr["cat"] and o is not pr]
+        sib_html = "".join(f'<li><a href="/products/{o["slug"]}/">{e(o["name"])} price in Pakistan</a></li>' for o in sib)
+        body = f"""<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › <a href="/products/">Products</a> › {e(n)}</nav>
+<div class="hero"><h1>{e(n)} price in Pakistan</h1><p class="lead">{e(pr["lead"])}</p></div>
+<div class="article"><article class="prose">
+<div class="answer"><b>Quick answer</b><p>{e(answer)}</p></div>
+<h2>What types of {e(nl)} are there?</h2><ul>{types}</ul>
+<h2>What changes the {e(nl)} price?</h2><ul>{fac}</ul>
+<h2>What should you check before you buy?</h2><ul>{chk}</ul>
+<h2>Which brands and models can we source?</h2><p>{e(pr["brands"])}</p>
+<h2>How do you get today's price?</h2><p>Fill in the <a href="/quote/">quote form</a> with the {e(nl)} model or the features you need, the quantity and your city. We reply on WhatsApp with a price in rupees. Items are imported on order and supplied across Pakistan to clinics, hospitals, labs and individuals.</p>
+{'<h2>Related guides</h2><ul>' + rel_html + '</ul>' if rel_html else ''}
+<h2 id="faq">Frequently asked questions</h2>{faq_html(faqs)}
+{'<h2>Related products</h2><ul>' + sib_html + '</ul>' if sib_html else ''}
+<p class="meta">Category: <a href="/{pr["cat"]}/">{e(catname[pr["cat"]])}</a></p>
+</article>
+<aside><div class="box"><h3>Get today's {e(nl)} price</h3><p>Send the model or features you need. We reply on WhatsApp with a price in rupees.</p><a class="btn" href="/quote/">Request a quote</a></div></aside></div>"""
+        prod = {"@context": "https://schema.org", "@type": "WebPage", "name": f"{n} price in Pakistan", "url": SITE + p,
+                "about": {"@type": "Thing", "name": n}, "publisher": {"@id": SITE + "/#org"}}
+        write(p, shell(p, f"{n} Price in Pakistan: Types and What to Check | {NAME}",
+              f"{n} price in Pakistan: types, what changes the price and what to check before you buy. Get today's price in rupees, supplied across Pakistan."[:158],
+              body, [ORG, prod, faq_ld(faqs), crumbs_ld([("Home", "/"), ("Products", "/products/"), (n, p)])]))
+        urls.append(p)
+    plist = "".join(f'<li><a href="/products/{pr["slug"]}/">{e(pr["name"])} price in Pakistan</a><p>{e(pr["lead"].split(". ")[0])}.</p></li>' for pr in PRODUCTS)
+    write("/products/", shell("/products/", "Medical Equipment Prices in Pakistan: Popular Products | " + NAME,
+          "Prices in Pakistan for nebulizers, thermometers, BP apparatus, glucometers, pulse oximeters, stethoscopes, wheelchairs and more. Get today's price.",
+          f'<nav class="crumbs"><a href="/">Home</a> › Products</nav><div class="hero"><h1>Popular medical products</h1><p class="lead">The items people in Pakistan search for most. Each page explains the types, what changes the price and what to check, and you can get today\'s price in rupees.</p></div><section><ul class="guides">{plist}</ul></section>',
+          [crumbs_ld([("Home", "/"), ("Products", "/products/")])])); urls.append("/products/")
 
     # ---- guides
     for g in guides:
@@ -362,6 +429,7 @@ def main():
          "Key facts:", "- Stock: none kept; everything is imported on order.", "- Buyers: clinics, hospitals, labs and individuals; single items or larger quantities.",
          "- Not offered: installation, calibration, servicing, medical advice.", "", "## Categories"]
     L += [f"- [{c['name']}]({SITE}/{c['slug']}/): {c['desc']}" for c in CATS]
+    L += ["", "## Product price pages"] + [f"- [{pr['name']} price in Pakistan]({SITE}/products/{pr['slug']}/): types, price factors and how to get today's price" for pr in PRODUCTS]
     if guides:
         L += ["", "## Buying guides"] + [f"- [{g['title']}]({SITE}/guides/{g['slug']}/): {g['description']}" for g in guides]
     open(os.path.join(ROOT, "llms.txt"), "w").write("\n".join(L) + "\n")
