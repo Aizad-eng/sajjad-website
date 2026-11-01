@@ -135,7 +135,7 @@ PRODUCTS = [
   "factors": ["Screening, diagnostic or clinical", "Transducers included (headphones, insert earphones, bone conductor)", "PC software or stand-alone", "Exchange rate on the day"],
   "checks": ["The tests you need to run", "Transducers and their calibration", "Availability of replacement headphones and bone conductors", "Power supply and warranty support"],
   "brands": "Tell us the model you want or the tests you run, and we price options. We also source replacement TDH39, DD45 and DD65 headphones and B71 and B81 bone conductors.",
-  "faqs": [("Can you source a replacement headphone for my audiometer?", "Yes. Send your audiometer model and the headphone type. One of our orders was exactly this: a single audiometric headset sourced from a verified supplier and delivered in Pakistan."),
+  "faqs": [("Can you source a replacement headphone for my audiometer?", "Yes. Send your audiometer model and the headphone type. We have sourced audiometric headsets from verified suppliers and delivered them in Pakistan."),
            ("Do you calibrate audiometers?", "No. We source the equipment. Arrange calibration with a qualified engineer.")]},
  {"slug": "hearing-aid", "name": "Hearing aid", "cat": "audiology-equipment",
   "lead": "Hearing aids come in behind-the-ear, receiver-in-canal and in-ear styles. A hearing test and fitting by an audiologist matter as much as the device.",

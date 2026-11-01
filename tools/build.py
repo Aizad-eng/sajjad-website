@@ -57,14 +57,14 @@ CATS = [
   ],
   "faqs": [
    ("Are surgical instruments made in Pakistan?", "Yes. Sialkot is the main centre of Pakistan's surgical instrument industry. Tell us the pattern and quantity and we will source it."),
-   ("Can I order a single instrument?", "Yes. You can order one instrument or a full set."),
+   ("Can I order instruments in quantity?", "Yes. Order individual instruments, full sets or quantities for a hospital department."),
    ("Do you sterilise instruments?", "No. Reusable instruments must be cleaned and sterilised by your clinic before use, following your infection control procedure."),
   ]},
  {"slug": "audiology-equipment", "name": "Audiology equipment",
   "h1": "Audiology equipment in Pakistan",
   "seo": "Audiology Equipment in Pakistan: Audiometers, Headphones",
   "desc": "Audiometers, TDH39, DD45 and DD65 audiometric headphones, B71 and B81 bone conductors and audiology accessories, imported on order across Pakistan.",
-  "intro": "Audiology equipment is hard to find in Pakistan, and replacement transducers are harder still. We have sourced an audiometric headset as a single piece from a verified supplier and delivered it in Pakistan, and we can source other audiology items on order.",
+  "intro": "Audiology equipment is hard to find in Pakistan, and replacement transducers are harder still. We have sourced audiometric headsets from verified suppliers and delivered them in Pakistan, and we can source other audiology items on order.",
   "items": [
    ("Audiometers", "Screening and diagnostic audiometers for clinics, ENT practices and hearing centres.", "Screening or diagnostic, the tests you need (air, bone, speech) and any brand or model you prefer."),
    ("Audiometric headphones", "Supra-aural headphones used with audiometers, such as the TDH39, DD45 and DD65 types.", "The headphone model your audiometer uses, and your audiometer's make and model."),
@@ -76,7 +76,7 @@ CATS = [
   "faqs": [
    ("Can you find a replacement headphone for my audiometer?", "Usually. Send us your audiometer's make and model and the headphone type it uses, such as TDH39 or DD45, and we will source a compatible one."),
    ("Will a new headphone need calibration?", "Audiometer transducers are calibrated together with the audiometer, so plan for calibration after a replacement. We source the equipment but do not provide calibration."),
-   ("Do you sell single units?", "Yes. One of our orders was a single audiometric headset, sourced from a verified supplier and delivered in Pakistan."),
+   ("Can you supply audiology equipment for a whole clinic?", "Yes. Send the list of items and quantities, from transducers to complete audiometers, and we price the full list."),
    ("Can you source a complete audiometer?", "Yes. Tell us whether you need a screening or diagnostic audiometer and the tests you run, and we will come back with options and a price in rupees."),
   ]},
  {"slug": "diagnostic-equipment", "name": "Diagnostic equipment",
@@ -95,7 +95,7 @@ CATS = [
   ],
   "faqs": [
    ("What is a validated blood pressure monitor?", "One that has passed a clinical accuracy test against a recognised protocol. Our guide explains how to check a model before you buy."),
-   ("Can I order one device for home use?", "Yes. We supply clinics, hospitals, labs and individuals, and you can order a single device."),
+   ("Can I order for home use?", "Yes. We supply clinics, hospitals, labs and individuals, in whatever quantity you need."),
    ("Do test strips have to match the meter?", "Yes. Glucometer strips are made for specific meters, so tell us your meter model when you ask for strips."),
   ]},
  {"slug": "hospital-equipment", "name": "Hospital equipment",
@@ -138,10 +138,10 @@ CATS = [
 
 # ---------------------------------------------------------------- page shell
 CSS = """
-:root{--ink:#0f2a2c;--ink-2:#3b5254;--ink-3:#6b7f80;--bg:#f6f9f9;--paper:#fff;--line:#e1e9e9;--teal:#0b7a70;--teal-dark:#075c55;--mint:#dff3ef;--mint-2:#c7ebe4;--sand:#f7f1e6;--sky:#e8f1fb;--rose:#fbecec;--shadow:0 1px 2px rgba(15,42,44,.05),0 18px 40px -22px rgba(15,42,44,.28);--r:20px}
+:root{--ink:#0d1f1d;--ink-2:#3a4d4a;--ink-3:#6c7c79;--bg:#fbfaf7;--paper:#fff;--line:#e7e3d9;--teal:#0a5c55;--teal-dark:#06433e;--teal-2:#0e7c72;--mint:#e4f1ec;--mint-2:#cfe6dd;--gold:#c99a3b;--gold-soft:#f6ecd6;--sand:#f6efe2;--sky:#eaf1f7;--shadow:0 1px 2px rgba(13,31,29,.05),0 24px 48px -28px rgba(13,31,29,.35);--r:22px;--display:"Sora","Plus Jakarta Sans",sans-serif}
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font:16.5px/1.65 "Plus Jakarta Sans",system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
-h1,h2,h3{font-weight:800;line-height:1.1;letter-spacing:-.025em;margin:0}
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.08;letter-spacing:-.03em;margin:0}
 a{color:var(--teal)}img{max-width:100%;display:block}
 .wrap{width:min(1160px,100% - 32px);margin-inline:auto}
 /* nav */
@@ -154,22 +154,56 @@ header{position:sticky;top:12px;z-index:50;padding:0 16px}
 .btn:hover{background:var(--teal-dark);transform:translateY(-1px)}
 .btn.ghost{background:var(--paper);color:var(--ink);border:1px solid var(--line)}.btn.ghost:hover{background:var(--mint)}
 /* hero */
-.home-hero{position:relative;margin-top:-74px;padding:130px 0 70px;background:radial-gradient(900px 500px at 85% 10%,var(--mint-2),transparent 60%),radial-gradient(700px 420px at 0% 100%,#eaf4ff,transparent 60%),linear-gradient(180deg,#f2faf8,var(--bg));overflow:hidden}
-.home-hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(11,122,112,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(11,122,112,.06) 1px,transparent 1px);background-size:44px 44px;mask-image:radial-gradient(ellipse at 70% 30%,#000 20%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse at 70% 30%,#000 20%,transparent 70%)}
-.hero-grid{position:relative;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:56px;align-items:center}
-.home-hero h1{font-size:clamp(38px,5.6vw,66px);letter-spacing:-.035em}
-.home-hero .lead{font-size:19px;color:var(--ink-2);margin:20px 0 0;max-width:560px}
-.search{margin-top:28px;display:flex;gap:8px;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:8px;box-shadow:var(--shadow);max-width:560px}
+.home-hero{position:relative;margin-top:-74px;padding:150px 0 0;min-height:92vh;overflow:hidden;background:linear-gradient(180deg,#f4f8f5 0%,var(--bg) 70%)}
+.home-hero .orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;will-change:transform}
+.home-hero .o1{width:520px;height:520px;right:-120px;top:-80px;background:rgba(14,124,114,.28)}
+.home-hero .o2{width:420px;height:420px;left:-160px;top:280px;background:rgba(201,154,59,.22)}
+.home-hero .o3{width:360px;height:360px;right:30%;bottom:-120px;background:rgba(120,170,220,.22)}
+.home-hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(10,92,85,.14) 1px,transparent 1.2px);background-size:26px 26px;mask-image:radial-gradient(ellipse at 70% 40%,#000 10%,transparent 65%);-webkit-mask-image:radial-gradient(ellipse at 70% 40%,#000 10%,transparent 65%)}
+.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:40px;align-items:center}
+.home-hero h1{font-size:clamp(38px,5vw,64px);letter-spacing:-.045em;line-height:1.02}
+.home-hero h1 .hl{background:linear-gradient(90deg,var(--teal),var(--teal-2) 60%,var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.home-hero .lead{font-size:19px;color:var(--ink-2);margin:22px 0 0;max-width:560px}
+.search{margin-top:30px;display:flex;gap:8px;background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:18px;padding:8px;box-shadow:var(--shadow);max-width:580px;backdrop-filter:blur(8px)}
 .search input{flex:1;min-width:0;border:0;outline:0;font:500 16.5px "Plus Jakarta Sans",sans-serif;padding:10px 12px;color:var(--ink);background:transparent}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;align-items:center}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;align-items:center}
 .chips span{font-size:14px;color:var(--ink-3);margin-right:2px}
-.chip{display:inline-block;font-size:14px;font-weight:600;color:var(--ink-2);background:rgba(255,255,255,.75);border:1px solid var(--line);border-radius:999px;padding:6px 12px;text-decoration:none}.chip:hover{border-color:var(--teal);color:var(--teal-dark)}
-.photos{position:relative;height:520px}
-.photos img{position:absolute;border-radius:22px;object-fit:cover;box-shadow:0 30px 60px -28px rgba(15,42,44,.5);border:6px solid #fff}
-.photos .p1{width:58%;height:78%;right:0;top:0;transform:rotate(2deg)}
-.photos .p2{width:50%;height:62%;left:0;bottom:0;transform:rotate(-3deg)}
-.photos .tag{position:absolute;left:8%;top:6%;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:14px 16px;max-width:250px;box-shadow:var(--shadow);font-size:14px;line-height:1.45;color:var(--ink-2)}
-.photos .tag b{display:block;color:var(--ink);font-size:15px;margin-bottom:2px}
+.chip{display:inline-block;font-size:14px;font-weight:600;color:var(--ink-2);background:rgba(255,255,255,.8);border:1px solid var(--line);border-radius:999px;padding:6px 12px;text-decoration:none;transition:all .2s}.chip:hover{border-color:var(--teal);color:var(--teal);transform:translateY(-1px)}
+.stage{position:relative;height:min(600px,62vw);min-height:440px}
+.stage canvas{position:absolute;inset:0;width:100%!important;height:100%!important;display:block;cursor:grab}
+.stage .fallback{position:absolute;inset:12%;display:grid;place-items:center}
+.stage .fallback svg{width:70%;max-width:320px;filter:drop-shadow(0 30px 40px rgba(10,92,85,.25));animation:float 6s ease-in-out infinite}
+.stage.has3d .fallback{display:none}
+@keyframes float{50%{transform:translateY(-14px)}}
+.order-card{position:absolute;right:2%;bottom:6%;z-index:3;display:flex;gap:12px;align-items:center;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:18px;padding:10px 14px 10px 10px;box-shadow:var(--shadow);max-width:300px;font-size:13.5px;line-height:1.4;color:var(--ink-2)}
+.order-card img{width:64px;height:76px;object-fit:cover;border-radius:12px;flex:none}
+.order-card b{display:block;color:var(--ink);font-size:14.5px;margin-bottom:2px}
+.ecg{position:relative;z-index:1;width:100%;height:90px;margin-top:20px;display:block}
+.ecg path{fill:none;stroke:var(--teal-2);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1600;stroke-dashoffset:1600;animation:ecg 4.5s linear infinite}
+.ecg path.base{stroke:rgba(10,92,85,.12);animation:none;stroke-dasharray:none;stroke-dashoffset:0}
+@keyframes ecg{0%{stroke-dashoffset:1600}70%,100%{stroke-dashoffset:0}}
+.marquee{position:relative;z-index:2;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper);overflow:hidden;padding:16px 0}
+.marquee::before,.marquee::after{content:"";position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none}
+.marquee::before{left:0;background:linear-gradient(90deg,var(--paper),transparent)}.marquee::after{right:0;background:linear-gradient(-90deg,var(--paper),transparent)}
+.marquee .track{display:flex;gap:12px;width:max-content;animation:mq 45s linear infinite}
+.marquee:hover .track{animation-play-state:paused}
+.marquee a{display:inline-flex;align-items:center;gap:8px;white-space:nowrap;font-weight:600;font-size:15px;color:var(--ink-2);text-decoration:none;padding:6px 14px;border-radius:999px;background:var(--bg);border:1px solid var(--line)}
+.marquee a:hover{color:var(--teal);border-color:var(--teal)}
+.marquee a svg{width:18px;height:18px;color:var(--teal)}
+@keyframes mq{to{transform:translateX(-50%)}}
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--teal),var(--gold));z-index:100}
+header.compact .nav{padding-top:6px;padding-bottom:6px;box-shadow:0 14px 34px -22px rgba(13,31,29,.45)}
+html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}
+.band{background:radial-gradient(800px 400px at 90% 0%,rgba(201,154,59,.22),transparent 60%),radial-gradient(700px 400px at 0% 100%,rgba(14,124,114,.5),transparent 60%),#0b3f3b;color:#e8f1ee;border-radius:32px;padding:64px 56px;margin:40px 0}
+.band h2{color:#fff}.band .lead{color:#c3d6d1!important}
+.band .steps li::before{background:var(--gold);color:#0b3f3b}.band .steps li::after{background:rgba(255,255,255,.15)}
+.band .steps b{color:#fff}.band .steps span{color:#c3d6d1}
+.band .steps li{opacity:.45;transition:opacity .4s}.band .steps li.on{opacity:1}
+.band .req{background:rgba(255,255,255,.96)}
+.band .btn{background:var(--gold);color:#0b3f3b}.band .btn:hover{background:#ddb257}
+.tile{will-change:transform}
+.tile::after{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(400px 200px at var(--mx,50%) var(--my,0%),rgba(14,124,114,.12),transparent 60%);opacity:0;transition:opacity .3s;pointer-events:none}
+.tile:hover::after{opacity:1}
 .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#1aa37a;box-shadow:0 0 0 4px rgba(26,163,122,.18);margin-right:8px;vertical-align:middle}
 /* sections */
 .sec{padding:84px 0}
@@ -257,10 +291,12 @@ footer .cols4{display:flex;gap:48px;flex-wrap:wrap}footer b{color:var(--ink)}foo
 footer .small{margin-top:28px;padding-top:18px;border-top:1px solid var(--line);color:var(--ink-3);font-size:13.5px}
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}.reveal.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
-@media(max-width:960px){.hero-grid,.how,.final{grid-template-columns:1fr}.photos{height:420px;max-width:520px}.req{margin-left:0}.rail{grid-template-columns:repeat(2,minmax(0,1fr))}.bento{grid-template-columns:repeat(2,minmax(0,1fr))}.t1,.t2,.t3,.t4,.t5,.t6{grid-column:span 2;grid-row:auto}.article{grid-template-columns:1fr}aside .box{position:static}}
+@media(max-width:960px){.hero-grid,.how,.final{grid-template-columns:1fr}.stage{height:380px;min-height:0}.band{padding:40px 24px}.req{margin-left:0}.rail{grid-template-columns:repeat(2,minmax(0,1fr))}.bento{grid-template-columns:repeat(2,minmax(0,1fr))}.t1,.t2,.t3,.t4,.t5,.t6{grid-column:span 2;grid-row:auto}.article{grid-template-columns:1fr}aside .box{position:static}}
 @media(max-width:1040px){.links a{padding:8px 8px;font-size:14.5px}}
 @media(max-width:900px){.links{display:none}}
-@media(max-width:720px){.qa,.items,.guides{grid-template-columns:1fr}.rail{grid-template-columns:1fr}.sec{padding:60px 0}.final{padding:28px}.home-hero{padding-top:110px}.photos{height:360px}.photos .tag{left:0;top:auto;bottom:-6px;max-width:220px}.nav .btn{padding:10px 14px;font-size:14.5px}}
+@media(max-width:720px){.qa,.items,.guides{grid-template-columns:1fr}.rail{grid-template-columns:1fr}.sec{padding:60px 0}.final{padding:28px}.home-hero{padding-top:120px;min-height:0}.stage{height:320px}.order-card{right:0;bottom:0;max-width:250px}.nav .btn{padding:10px 14px;font-size:14.5px}.band{border-radius:24px}}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}.ecg path,.marquee .track,.stage .fallback svg{animation:none}}
 """
 
 LOGO = '<svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#0e6b63"/><path d="M13 7h6v6h6v6h-6v6h-6v-6H7v-6h6z" fill="#fff"/></svg>'
@@ -295,7 +331,7 @@ def shell(path, title, desc, body, ld=None, og_type="website", full=False):
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
 {lds}</head>
 <body>
@@ -310,7 +346,8 @@ def shell(path, title, desc, body, ld=None, og_type="website", full=False):
 <div><b>Company</b><ul><li><a href="/about/">About</a></li><li><a href="/guides/">Buying guides</a></li><li><a href="/quote/">Request a quote</a></li></ul></div></div></div>
 <p class="small">© {TODAY.year} {NAME}. Based in Islamabad. Product names and model numbers belong to their manufacturers and are used only to identify items.</p>
 </div></footer>
-<script src="/site.js" defer></script>
+<script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js" defer></script>
+<script src="/site.js?v=3" defer></script>
 </body>
 </html>
 """
@@ -362,7 +399,7 @@ def main():
     g_list = "".join(f'<li class="reveal"><a href="/guides/{g["slug"]}/">{e(g["title"])}</a><p>{e(g["description"])}</p></li>' for g in guides[:6])
     home_faqs = [
         ("Do you keep stock?", "No. Items are imported on order. You tell us what you need, we price it in rupees, and once you confirm we source it and deliver it to you."),
-        ("Who do you supply?", "Clinics, hospitals, laboratories and individuals across Pakistan. You can order a single item or a larger quantity for a clinic."),
+        ("Who do you supply?", "Clinics, hospitals, laboratories and individuals across Pakistan. Order any quantity, from one device to stock for a whole clinic or hospital."),
         ("Where are you based?", "Islamabad. We supply customers across Pakistan."),
         ("How do I get a price?", "Fill in the quote form with the item name, model or a link, the quantity and your city. We reply on WhatsApp with a price in rupees."),
         ("Are the products DRAP registered?", "Many medical devices in Pakistan fall under DRAP's Medical Devices Rules 2017. Ask about a specific item and we will tell you what documentation the supplier provides."),
@@ -370,26 +407,32 @@ def main():
     ]
     qa = "".join(f"<div class=\"reveal\"><h3>{e(q)}</h3><p>{e(a)}</p></div>" for q, a in home_faqs)
     search = '<form class="search" action="/quote/" method="get" data-search><input name="item" placeholder="What do you need? e.g. TDH39 headphones, nitrile gloves" aria-label="What do you need?" autocomplete="off"><button class="btn" type="submit">Get a price</button></form>'
-    body = f"""<section class="home-hero"><div class="wrap hero-grid">
+    marquee_items = "".join(f'<a href="/products/{pr["slug"]}/">{ICON[pr["cat"]]}{e(pr["name"])}</a>' for pr in PRODUCTS)
+    body = f"""<div class="progress" aria-hidden="true"></div>
+<section class="home-hero">
+<span class="orb o1" data-parallax="-.12"></span><span class="orb o2" data-parallax=".08"></span><span class="orb o3" data-parallax="-.05"></span>
+<div class="wrap hero-grid">
 <div>
-<h1>Medical equipment and surgical supplies, sourced for you</h1>
-<p class="lead">Tell us the item. We find it, price it in rupees and deliver it anywhere in Pakistan. For clinics, hospitals, labs and home use.</p>
+<h1>Medical equipment and surgical supplies, <span class="hl">sourced for you</span></h1>
+<p class="lead">Tell us the item. We find it, price it in rupees and deliver it anywhere in Pakistan. For clinics, hospitals, labs and home use, in any quantity.</p>
 {search}
 <div class="chips"><span>Popular:</span>{chips}</div>
 </div>
-<div class="photos">
-<img class="p1" src="/assets/order-headset-hand.jpg" alt="Audiometric headset from one of our orders" width="480" height="640" fetchpriority="high">
-<img class="p2" src="/assets/order-headset-box.jpg" alt="The audiometric headset in its shipping box" width="480" height="640">
-<div class="tag"><b><span class="dot"></span>A recent order</b>An audiometric headset of the TDH39 and DD45 type. No shop in Pakistan stocked it, so we sourced one and delivered it.</div>
+<div class="stage" id="stage" aria-hidden="true">
+<div class="fallback"><svg viewBox="0 0 200 200"><defs><linearGradient id="cg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0e7c72"/><stop offset="1" stop-color="#0a5c55"/></linearGradient></defs><path d="M75 20h50a8 8 0 0 1 8 8v39h39a8 8 0 0 1 8 8v50a8 8 0 0 1-8 8h-39v39a8 8 0 0 1-8 8H75a8 8 0 0 1-8-8v-39H28a8 8 0 0 1-8-8V75a8 8 0 0 1 8-8h39V28a8 8 0 0 1 8-8z" fill="url(#cg)"/></svg></div>
+<div class="order-card"><img src="/assets/order-headset-hand.jpg" alt="" width="64" height="76"><div><b>A recent order</b>An audiometric headset of the TDH39 and DD45 type, sourced and delivered in Pakistan.</div></div>
 </div>
-</div></section>
+</div>
+<svg class="ecg" viewBox="0 0 1600 90" preserveAspectRatio="none" aria-hidden="true"><path class="base" d="M0 55H520l18-30 16 62 20-74 18 42H900l14-20 12 40 16-52 14 32H1600"/><path d="M0 55H520l18-30 16 62 20-74 18 42H900l14-20 12 40 16-52 14 32H1600"/></svg>
+<div class="marquee" aria-label="Popular products"><div class="track">{marquee_items}{marquee_items}</div></div>
+</section>
 <div class="wrap">
 <section class="sec" id="categories" style="border:0"><div class="sec-head"><div><h2>What we supply</h2><p>Six areas, from everyday disposables to specialist audiology equipment. If it is a medical item, ask us.</p></div><a class="btn ghost" href="/quote/">Ask for something else</a></div>
 <div class="bento">{tiles}</div></section>
 <section class="sec"><div class="sec-head"><div><h2>Prices people search for</h2><p>Each page explains the types, what changes the price and what to check. Ask for today's price in rupees.</p></div><a class="btn ghost" href="/products/">All products</a></div>
 <div class="rail">{rail}</div></section>
-<section class="sec"><div class="how">
-<div class="reveal"><h2>How ordering works</h2><p class="lead" style="font-size:17.5px">There is nothing to sign up for. You send a request, we come back with a price.</p>
+<section class="band"><div class="how">
+<div class="reveal"><h2>How ordering works</h2><p class="lead" style="font-size:17.5px;margin-top:12px">There is nothing to sign up for. You send a request, we come back with a price.</p>
 <ol class="steps"><li data-n="1"><b>Tell us the item</b><span>Name, model number or a link, the quantity and your city.</span></li>
 <li data-n="2"><b>Get a price in rupees</b><span>We find it from manufacturers and verified suppliers and reply on WhatsApp.</span></li>
 <li data-n="3"><b>Confirm and receive</b><span>We import it on order and deliver it anywhere in Pakistan.</span></li></ol>
@@ -420,18 +463,73 @@ def main():
     keys["audiometer"] += ["audiometry"]; keys["hearing-aid"] += ["hearing"]
     js = """(function(){
 var R=%s;
+var reduced=matchMedia("(prefers-reduced-motion: reduce)").matches;
 document.querySelectorAll("form[data-search]").forEach(function(f){f.addEventListener("submit",function(ev){var q=(f.item.value||"").toLowerCase().trim();if(!q)return;for(var k in R){for(var i=0;i<R[k].length;i++){if(q.indexOf(R[k][i])>-1&&q.length<=R[k][i].length+12){ev.preventDefault();location.href="/products/"+k+"/";return}}}});});
+/* smooth scroll */
+var lenis=null;
+if(window.Lenis&&!reduced){lenis=new Lenis({lerp:.09,smoothWheel:true});(function raf(t){lenis.raf(t);requestAnimationFrame(raf)})(performance.now());}
+/* progress bar, compact header, parallax orbs */
+var bar=document.querySelector(".progress"),hdr=document.querySelector("header"),orbs=[].slice.call(document.querySelectorAll("[data-parallax]"));
+function onScroll(y){var h=document.documentElement.scrollHeight-innerHeight;if(bar)bar.style.width=(h>0?y/h*100:0)+"%%";if(hdr)hdr.classList.toggle("compact",y>40);
+if(!reduced)orbs.forEach(function(o){o.style.transform="translateY("+(y*parseFloat(o.dataset.parallax)).toFixed(1)+"px)"});steps();}
+var stepEls=[].slice.call(document.querySelectorAll(".band .steps li"));
+function steps(){if(!stepEls.length)return;var line=innerHeight*.6;stepEls.forEach(function(li){li.classList.toggle("on",li.getBoundingClientRect().top<line)})}
+if(lenis)lenis.on("scroll",function(e){onScroll(e.scroll)});else addEventListener("scroll",function(){onScroll(scrollY)},{passive:true});
+onScroll(scrollY);
+/* tile glow follows the pointer */
+document.querySelectorAll(".tile").forEach(function(t){t.addEventListener("pointermove",function(e){var r=t.getBoundingClientRect();t.style.setProperty("--mx",(e.clientX-r.left)+"px");t.style.setProperty("--my",(e.clientY-r.top)+"px")})});
+/* reveal */
 var els=document.querySelectorAll(".reveal");
-if(!("IntersectionObserver" in window)||matchMedia("(prefers-reduced-motion: reduce)").matches){els.forEach(function(x){x.classList.add("in")});return}
-var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add("in");io.unobserve(en.target)}})},{rootMargin:"0px 0px -8%% 0px"});
-els.forEach(function(x){io.observe(x)});
+if(!("IntersectionObserver" in window)||reduced){els.forEach(function(x){x.classList.add("in")})}
+else{var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add("in");io.unobserve(en.target)}})},{rootMargin:"0px 0px -8%% 0px"});els.forEach(function(x){io.observe(x)});}
+/* flagship: 3D particle medical cross with orbit ring */
+var stage=document.getElementById("stage");
+if(stage){var c=navigator.connection||{};var ok=!c.saveData&&!/(^|-)2g$/.test(c.effectiveType||"");
+ if(ok){var go=function(){var sc=document.createElement("script");sc.src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js";sc.async=true;sc.onload=init3d;document.head.appendChild(sc)};
+  addEventListener("load",function(){(window.requestIdleCallback||function(f){setTimeout(f,800)})(go,{timeout:2500})});}}
+function init3d(){
+ if(!window.THREE)return;var T=THREE;var W=function(){return stage.clientWidth},H=function(){return stage.clientHeight};
+ var rd;try{rd=new T.WebGLRenderer({antialias:true,alpha:true})}catch(e){return}
+ rd.setPixelRatio(Math.min(devicePixelRatio,2));rd.setSize(W(),H());stage.insertBefore(rd.domElement,stage.firstChild);stage.classList.add("has3d");
+ var scene=new T.Scene(),cam=new T.PerspectiveCamera(36,W()/H(),.1,100);cam.position.set(0,0,7.2);
+ var g=new T.Group();scene.add(g);
+ /* points on the surface of a rounded plus made of two boxes */
+ function inPlus(x,y){return (Math.abs(x)<=.55&&Math.abs(y)<=1.6)||(Math.abs(y)<=.55&&Math.abs(x)<=1.6)}
+ var N=reduced?2000:5200,pos=new Float32Array(N*3),col=new Float32Array(N*3),base=new Float32Array(N*3),k=0,cA=new T.Color(0x0e7c72),cB=new T.Color(0x0a5c55),cG=new T.Color(0xc99a3b);
+ while(k<N){var x=(Math.random()*2-1)*1.6,y=(Math.random()*2-1)*1.6,z=(Math.random()*2-1)*.55;if(!inPlus(x,y))continue;
+  var edge=Math.min(1.6-Math.abs(x),1.6-Math.abs(y),.55-Math.abs(z),Math.abs(x)>.55?.55-Math.abs(y):9,Math.abs(y)>.55?.55-Math.abs(x):9);
+  if(Math.abs(edge)>.06&&Math.random()<.9)continue;
+  pos[k*3]=base[k*3]=x;pos[k*3+1]=base[k*3+1]=y;pos[k*3+2]=base[k*3+2]=z;
+  var cc=Math.random()<.08?cG:(Math.random()<.5?cA:cB);col[k*3]=cc.r;col[k*3+1]=cc.g;col[k*3+2]=cc.b;k++;}
+ var geo=new T.BufferGeometry();geo.setAttribute("position",new T.BufferAttribute(pos,3));geo.setAttribute("color",new T.BufferAttribute(col,3));
+ var pts=new T.Points(geo,new T.PointsMaterial({size:.055,vertexColors:true,transparent:true,opacity:1}));g.add(pts);
+ /* orbit ring */
+ var M=900,rp=new Float32Array(M*3);for(var i=0;i<M;i++){var a=i/M*Math.PI*2,r=2.45+Math.sin(i*.7)*.04;rp[i*3]=Math.cos(a)*r;rp[i*3+1]=Math.sin(a)*r*.32;rp[i*3+2]=Math.sin(a)*r;}
+ var rg=new T.BufferGeometry();rg.setAttribute("position",new T.BufferAttribute(rp,3));var ring=new T.Points(rg,new T.PointsMaterial({size:.03,color:0xc99a3b,transparent:true,opacity:.7}));
+ var ringG=new T.Group();ringG.add(ring);ringG.rotation.z=.35;scene.add(ringG);
+ var sat=new T.Mesh(new T.SphereGeometry(.09,20,20),new T.MeshBasicMaterial({color:0xc99a3b}));ringG.add(sat);
+ var mx=0,my=0,drag=0,down=null,vis=true,last=performance.now(),t0=last;
+ addEventListener("pointermove",function(e){mx=(e.clientX/innerWidth-.5);my=(e.clientY/innerHeight-.5)});
+ stage.addEventListener("pointerdown",function(e){down=e.clientX});addEventListener("pointerup",function(){down=null});
+ stage.addEventListener("pointermove",function(e){if(down!==null){drag+=(e.clientX-down)*.006;down=e.clientX}});
+ new IntersectionObserver(function(en){vis=en[0].isIntersecting},{threshold:.02}).observe(stage);
+ addEventListener("resize",function(){rd.setSize(W(),H());cam.aspect=W()/H();cam.updateProjectionMatrix()});
+ (function loop(now){requestAnimationFrame(loop);if(!vis)return;var t=(now-t0)/1000;last=now;
+  if(!reduced){g.rotation.y=Math.sin(t*.45)*.75+drag+mx*.5;g.rotation.x=Math.sin(t*.3)*.15+my*.35+.12;
+   var p=geo.attributes.position.array;for(var j=0;j<N;j+=3){var b=j*3,w=Math.sin(t*1.6+base[b]*2+base[b+1]*2)*.025;p[b]=base[b]*(1+w);p[b+1]=base[b+1]*(1+w);}
+   geo.attributes.position.needsUpdate=true;
+   ring.rotation.y=-t*.25;var a=t*.6;sat.position.set(Math.cos(a)*2.45,Math.sin(a)*2.45*.32,Math.sin(a)*2.45);}
+  rd.render(scene,cam)})(last);
+}
 })();
 """ % json.dumps(keys)
     open(os.path.join(ROOT, "site.js"), "w").write(js)
 
     # ---- categories
     for c in CATS:
-        rel = [g for g in guides if g.get("category", "").lower().startswith(c["name"].split()[0].lower()[:6])]
+        gcat = {"surgical-disposables": "Surgical disposables", "surgical-instruments": "Surgical instruments", "audiology-equipment": "Audiology",
+                "diagnostic-equipment": "Diagnostic", "hospital-equipment": "Hospital", "laboratory-equipment": "Laboratory"}[c["slug"]]
+        rel = [g for g in guides if g.get("category", "") == gcat]
         items = "".join(f'<div class="item"><h3>{e(n)}</h3><p>{e(d)}</p><p class="ask"><b>When you ask for a price, tell us:</b> {e(a)}</p></div>' for n, d, a in c["items"])
         others = "".join(f'<li><a href="/{o["slug"]}/">{e(o["name"])}</a></li>' for o in CATS if o is not c)
         rel_html = ('<section><h2>Buying guides</h2><ul class="guides">' + "".join(f'<li><a href="/guides/{g["slug"]}/">{e(g["title"])}</a><p>{e(g["description"])}</p></li>' for g in rel) + "</ul></section>") if rel else ""
@@ -536,7 +634,7 @@ els.forEach(function(x){io.observe(x)});
     abody = f"""<nav class="crumbs"><a href="/">Home</a> › About</nav>
 <div class="hero"><h1>About {NAME}</h1><p class="lead">{NAME} sources medical equipment and surgical disposables for clinics, hospitals, laboratories and individuals in Pakistan.</p></div>
 <section><h2>What we do</h2><p>We find the item you need from manufacturers and verified suppliers, price it in rupees, import it on order and deliver it anywhere in Pakistan. We are based in Islamabad.</p>
-<p>One example: a customer needed a replacement audiometric headset that no shop in Pakistan stocked. We found it from a verified supplier, bought it as a single piece and delivered it in Pakistan.</p></section>
+<p>One example: a customer needed a replacement audiometric headset that no shop in Pakistan stocked. We found it from a verified supplier and delivered it in Pakistan.</p></section>
 <section><h2>What we don't do</h2><ul><li>We don't keep stock. Items are imported on order.</li><li>We don't install, calibrate or service equipment. Arrange that with a local biomedical engineer.</li><li>We don't give medical advice. Our guides are about buying equipment, not about treatment.</li></ul></section>
 <section><h2>Contact</h2><p>Every enquiry goes through our <a href="/quote/">quote form</a>. We reply on WhatsApp.</p></section>"""
     write("/about/", shell("/about/", "About " + NAME + " | Medical Equipment Supplier, Islamabad",
@@ -552,7 +650,7 @@ els.forEach(function(x){io.observe(x)});
     open(os.path.join(ROOT, "sitemap.xml"), "w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + sm + "</urlset>\n")
     open(os.path.join(ROOT, "robots.txt"), "w").write(f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n")
     L = [f"# {NAME}", "", f"> {NAME} sources medical equipment and surgical disposables for clinics, hospitals, laboratories and individuals in Pakistan. Items are imported on order and supplied across Pakistan. Based in Islamabad. Buyers request a price through the quote form at {SITE}/quote/ and get a reply on WhatsApp with a price in rupees.", "",
-         "Key facts:", "- Stock: none kept; everything is imported on order.", "- Buyers: clinics, hospitals, labs and individuals; single items or larger quantities.",
+         "Key facts:", "- Stock: none kept; everything is imported on order.", "- Buyers: clinics, hospitals, labs and individuals; any quantity.",
          "- Not offered: installation, calibration, servicing, medical advice.", "", "## Categories"]
     L += [f"- [{c['name']}]({SITE}/{c['slug']}/): {c['desc']}" for c in CATS]
     L += ["", "## Product price pages"] + [f"- [{pr['name']} price in Pakistan]({SITE}/products/{pr['slug']}/): types, price factors and how to get today's price" for pr in PRODUCTS]

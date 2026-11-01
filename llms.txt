@@ -4,7 +4,7 @@
 
 Key facts:
 - Stock: none kept; everything is imported on order.
-- Buyers: clinics, hospitals, labs and individuals; single items or larger quantities.
+- Buyers: clinics, hospitals, labs and individuals; any quantity.
 - Not offered: installation, calibration, servicing, medical advice.
 
 ## Categories
@@ -30,3 +30,15 @@ Key facts:
 - [Surgical gloves price in Pakistan](https://surgisource.dxuxama.workers.dev/products/surgical-gloves/): types, price factors and how to get today's price
 - [Audiometer price in Pakistan](https://surgisource.dxuxama.workers.dev/products/audiometer/): types, price factors and how to get today's price
 - [Hearing aid price in Pakistan](https://surgisource.dxuxama.workers.dev/products/hearing-aid/): types, price factors and how to get today's price
+
+## Buying guides
+- [Audiometer buying guide for clinics in Pakistan: types, transducers and calibration](https://surgisource.dxuxama.workers.dev/guides/audiometer-buying-guide-pakistan/): How to choose an audiometer in Pakistan: screening vs diagnostic vs clinical, IEC 60645-1 types, headphones and bone conductors, and ISO 389 calibration.
+- [B71 vs B81 bone conductor: which RadioEar transducer does your audiometer need?](https://surgisource.dxuxama.workers.dev/guides/b71-vs-b81-bone-conductor/): RadioEar B71 vs B81 bone conductors compared: impedance, output, distortion, weight, headbands and audiometer compatibility, with notes on recalibration.
+- [DRAP Medical Devices Rules 2017: what they mean for buyers in Pakistan](https://surgisource.dxuxama.workers.dev/guides/drap-medical-devices-rules-pakistan/): What the DRAP Medical Devices Rules 2017 mean for buyers: Class A to D, establishment licence, enlistment, registration, import rules and what to ask.
+- [How to choose a blood pressure monitor and pulse oximeter](https://surgisource.dxuxama.workers.dev/guides/how-to-choose-a-blood-pressure-monitor-and-pulse-oximeter/): Choose a validated blood pressure monitor and an accurate pulse oximeter: ISO 81060-2, STRIDE BP, cuff sizes, upper arm vs wrist, ISO 80601-2-61 and FDA.
+- [How to import medical equipment from China to Pakistan: routes, DRAP and Alibaba](https://surgisource.dxuxama.workers.dev/guides/how-to-import-medical-equipment-from-china-to-pakistan/): How to import medical equipment from China to Pakistan: buying routes, DRAP and customs rules, choosing an Alibaba supplier, certificates and air freight.
+- [IV cannula and needle gauge guide: sizes, colour codes and how to order](https://surgisource.dxuxama.workers.dev/guides/iv-cannula-and-needle-gauge-guide/): IV cannula and needle gauge sizes explained: colour codes, diameters, flow rates, typical uses listed by NHS guidance and what to specify on an order.
+- [Nitrile vs latex vs vinyl gloves: which medical gloves should you order?](https://surgisource.dxuxama.workers.dev/guides/nitrile-vs-latex-vs-vinyl-gloves/): Nitrile, latex or vinyl? Compare exam and surgical gloves, ASTM D6319, D3578, D5250, EN 455, AQL, powder-free rules and sizing before you order.
+- [Surgical disposables checklist for clinics: what to order and how to specify it](https://surgisource.dxuxama.workers.dev/guides/surgical-disposables-checklist-for-clinics/): A practical surgical disposables checklist for clinics and small OTs: gloves, masks, gowns, syringes, cannulas, catheters, sutures and what to specify.
+- [Surgical mask types explained: Type IIR, ASTM levels, N95, KN95 and FFP2](https://surgisource.dxuxama.workers.dev/guides/surgical-mask-types-explained/): Medical mask grades explained: EN 14683 Type I, II and IIR, ASTM F2100 levels, N95, KN95, FFP2 and FFP3, what each test means and what to order.
+- [TDH39 vs DD45 vs DD65 vs DD450: audiometric headphones compared](https://surgisource.dxuxama.workers.dev/guides/tdh39-vs-dd45-vs-dd65-audiometric-headphones/): TDH39, DD45, DD65v2 and DD450 audiometric headphones compared: makers, impedance, sensitivity, compatible audiometers and calibration after a swap.
