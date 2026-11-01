@@ -379,7 +379,7 @@ def main():
 </div>
 <div class="photos">
 <img class="p1" src="/assets/order-headset-hand.jpg" alt="Audiometric headset from one of our orders" width="480" height="640" fetchpriority="high">
-<img class="p2" src="/assets/order-headset-box.jpg" alt="The audiometric headset in its shipping box" width="480" height="640" loading="lazy">
+<img class="p2" src="/assets/order-headset-box.jpg" alt="The audiometric headset in its shipping box" width="480" height="640">
 <div class="tag"><b><span class="dot"></span>A recent order</b>An audiometric headset of the TDH39 and DD45 type. No shop in Pakistan stocked it, so we sourced one and delivered it.</div>
 </div>
 </div></section>
